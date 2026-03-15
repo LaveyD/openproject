@@ -51,6 +51,11 @@ docker run -d \
 - `DATABASE_URL`：指向你的外部 PostgreSQL。
 - `openproject_assets`：持久化附件等业务文件。
 
+镜像标签建议：
+
+- 生产环境建议固定主版本或完整版本标签（例如 `:17`、`:17.0.3`），避免因 `:latest` 自动升级带来不可预期变更。
+- 升级前请先查看 OpenProject 发布说明并在测试环境验证。
+
 ### 2.2 验证运行状态
 
 ```bash
@@ -116,7 +121,7 @@ docker compose up -d
 ### 5.2 容器无法访问宿主机数据库
 
 - 在 Docker Desktop（Mac/Windows）中，可尝试把数据库地址从 `localhost` 改为 `host.docker.internal`。
-- 在 Linux 的 Docker Engine 中，通常没有 `host.docker.internal`，请改用宿主机实际网卡 IP 或自定义 DNS 配置。
+- 在 Linux 的 Docker Engine 中，通常没有 `host.docker.internal`，可以通过 `--add-host=host.docker.internal:host-gateway`（Compose 中可用 `extra_hosts`）手动添加，或改用宿主机实际网卡 IP。
 
 ### 5.3 启动后页面报错或初始化未完成
 
