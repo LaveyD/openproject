@@ -113,9 +113,10 @@ docker compose up -d
 - 在宿主机上测试连接：`psql '<DATABASE_URL>'`。
 - 确认数据库编码为 UTF8。
 
-### 5.2 使用 Docker for Mac/Windows 时无法访问宿主机数据库
+### 5.2 容器无法访问宿主机数据库
 
-- 可尝试把数据库地址从 `localhost` 改为 `host.docker.internal`。
+- 在 Docker Desktop（Mac/Windows）中，可尝试把数据库地址从 `localhost` 改为 `host.docker.internal`。
+- 在 Linux 的 Docker Engine 中，通常没有 `host.docker.internal`，请改用宿主机实际网卡 IP 或自定义 DNS 配置。
 
 ### 5.3 启动后页面报错或初始化未完成
 
