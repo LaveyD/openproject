@@ -1,0 +1,59 @@
+require 'md_to_pdf/elements/blockquote'
+require 'md_to_pdf/elements/break'
+require 'md_to_pdf/elements/code'
+require 'md_to_pdf/elements/codeblock'
+require 'md_to_pdf/elements/footnotes'
+require 'md_to_pdf/elements/header'
+require 'md_to_pdf/elements/hrule'
+require 'md_to_pdf/elements/html'
+require 'md_to_pdf/elements/image'
+require 'md_to_pdf/elements/link'
+require 'md_to_pdf/elements/list'
+require 'md_to_pdf/elements/page'
+require 'md_to_pdf/elements/paragraph'
+require 'md_to_pdf/elements/table'
+require 'md_to_pdf/elements/text'
+require 'md_to_pdf/utils/attributes_parser'
+require 'md_to_pdf/utils/common'
+require 'md_to_pdf/utils/fonts'
+require 'md_to_pdf/utils/ids'
+require 'md_to_pdf/utils/markdown_ast_node'
+require 'md_to_pdf/style/validation'
+require 'md_to_pdf/style/helper'
+require 'md_to_pdf/style/styles'
+require 'md_to_pdf/utils/options'
+require 'md_to_pdf/version'
+require 'md_to_pdf/ext/prawn-table/table/table'
+require 'md_to_pdf/ext/prawn-table/table/natural_split_generator'
+require 'md_to_pdf/ext/prawn-table/table/cell/cell'
+require 'md_to_pdf/ext/prawn-table/table/cell/cell/text'
+require 'md_to_pdf/ext/prawn-table/table/cell/cell/image'
+require 'md_to_pdf/ext/prawn-table/table/cell/cell/subtable'
+
+module MarkdownToPDF
+  module Core
+    include MarkdownToPDF::Blockquote
+    include MarkdownToPDF::Break
+    include MarkdownToPDF::Code
+    include MarkdownToPDF::Codeblock
+    include MarkdownToPDF::Footnotes
+    include MarkdownToPDF::Header
+    include MarkdownToPDF::HRule
+    include MarkdownToPDF::HTML
+    include MarkdownToPDF::Image
+    include MarkdownToPDF::Link
+    include MarkdownToPDF::List
+    include MarkdownToPDF::MarkdownASTNode
+    include MarkdownToPDF::Page
+    include MarkdownToPDF::Paragraph
+    include MarkdownToPDF::Table
+    include MarkdownToPDF::Text
+    include MarkdownToPDF::AttributesParser
+    include MarkdownToPDF::Common
+    include MarkdownToPDF::Fonts
+    include MarkdownToPDF::IDs
+    include MarkdownToPDF::StyleHelper
+    include MarkdownToPDF::StyleValidation
+    include MarkdownToPDF::Options
+  end
+end
