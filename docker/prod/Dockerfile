@@ -58,14 +58,14 @@ RUN gem install bundler --no-document
 
 # runtime dependencies
 COPY ./docker/prod/setup/preinstall-common.sh ./docker/prod/setup/preinstall-common.sh
-RUN ./docker/prod/setup/preinstall-common.sh
+RUN chmod +x ./docker/prod/setup/preinstall-common.sh && ./docker/prod/setup/preinstall-common.sh
 
 FROM runtime-base AS build-base
 ARG NODE_VERSION="22.21.0"
 
 # build-only dependencies
 COPY ./docker/prod/setup/preinstall-build.sh ./docker/prod/setup/preinstall-build.sh
-RUN ./docker/prod/setup/preinstall-build.sh
+RUN chmod +x ./docker/prod/setup/preinstall-build.sh && ./docker/prod/setup/preinstall-build.sh
 
 FROM build-base AS app-build
 
