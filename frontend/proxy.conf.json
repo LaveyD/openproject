@@ -1,0 +1,12 @@
+{
+  "/**": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "bypass": function (req) {
+      if (req.url.startsWith('/assets/frontend') || req.url.includes('.js') || req.url.includes('.css') || req.url.includes('hot-update')) {
+        return req.url;
+      }
+    }
+  }
+}
