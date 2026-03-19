@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 if command -v overmind &> /dev/null; then
-  overmind start -f Procfile.dev
-elif command -v foreman &> /dev/null; then
-  foreman start -f Procfile.dev
+  overmind start -f Procfile.dev -D
+#elif command -v foreman &> /dev/null; then
+#  foreman start -f Procfile.dev
 else
-  echo 'Neither overmind, nor foreman is installed, either `gem install overmind` or `gem install foreman`.'
+  echo '`please install overmind, ref docs/deploy-without-docker.md`.'
   exit 1
 fi
