@@ -22,12 +22,6 @@ export default class ProjectsBulkDeleteController extends Controller<HTMLFormEle
   }
 
   private hasSelection(): boolean {
-    return this.selectedCheckboxes.length > 0;
-  }
-
-  private get selectedCheckboxes(): HTMLInputElement[] {
-    return Array.from(
-      this.element.querySelectorAll<HTMLInputElement>('input[name="project_ids[]"]:checked'),
-    );
+    return this.element.querySelector('input[name="project_ids[]"]:checked') !== null;
   }
 }

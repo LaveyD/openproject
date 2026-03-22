@@ -320,6 +320,25 @@ RSpec.describe "Projects lists table display and actions", :js, with_settings: {
 
       specify "bulk delete validates selection and asks for confirmation" do
         login_as(admin)
+        visit projects_path
+
+        expect(page).not_to have_test_selector("projects-bulk-delete-check-all")
+
+        accept_alert I18n.t("projects.index.bulk_delete.no_selection") do
+          click_button I18n.t("projects.index.bulk_delete.submit")
+        end
+
+        within "#project-#{project.id}" do
+          check "project-list-bulk-delete-#{project.id}", allow_label_click: true
+        end
+
+        dismiss_confirm I18n.t("projects.index.bulk_delete.confirm") do
+          click_button I18n.t("projects.index.bulk_delete.submit")
+        end
+      end
+
+      specify "bulk delete uses zh-CN labels and messages" do
+        login_as(admin)
         I18n.with_locale(:"zh-CN") do
           visit projects_path
 
