@@ -40,6 +40,7 @@ import OpZenModeController from 'core-stimulus/controllers/zen-mode.controller';
 import CheckAllController from 'core-stimulus/controllers/check-all.controller';
 import CheckableController from 'core-stimulus/controllers/checkable.controller';
 import TruncationController from 'core-stimulus/controllers/truncation.controller';
+import ProjectsBulkDeleteController from './controllers/dynamic/projects-bulk-delete.controller';
 
 declare global {
   interface Window {
@@ -85,6 +86,7 @@ OpenProjectStimulusApplication.preregister('editable-page-header-title', Editabl
 OpenProjectStimulusApplication.preregister('check-all', CheckAllController);
 OpenProjectStimulusApplication.preregister('checkable', CheckableController);
 OpenProjectStimulusApplication.preregister('truncation', TruncationController);
+OpenProjectStimulusApplication.preregister('projects-bulk-delete', ProjectsBulkDeleteController);
 
 const instance = OpenProjectStimulusApplication.start();
 window.Stimulus = instance;
