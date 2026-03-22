@@ -172,6 +172,18 @@ RSpec.describe Type do
     end
   end
 
+  describe ".sql_translated_name_expression" do
+    it "builds a CASE statement with translated standard names" do
+      allow(I18n).to receive(:t).and_call_original
+
+      sql = described_class.sql_translated_name_expression(name_column: "types.name", standard_column: "types.is_standard")
+
+      expect(I18n).to have_received(:t).exactly(described_class::STANDARD_TYPE_TRANSLATION_KEYS.size).times
+      expect(sql).to include("WHEN types.name = 'Task'")
+      expect(sql).to include("ELSE types.name")
+    end
+  end
+
   describe "#work_package_attributes" do
     subject { type.work_package_attributes }
 

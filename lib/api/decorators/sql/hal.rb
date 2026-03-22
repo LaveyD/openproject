@@ -80,13 +80,12 @@ module API
           def joins(select, scope)
             selected_joins(select).each do |name, column|
               options = column[:join]
-              select_values = options[:select].respond_to?(:call) ? options[:select].call : options[:select]
               condition = <<~SQL.squish
                 LEFT OUTER JOIN
                   #{options[:table]} #{options[:alias] || name.to_s.pluralize}
                 ON #{options[:condition]}
               SQL
-              scope = scope.joins(condition).select(select_values)
+              scope = scope.joins(condition).select(options[:select])
             end
 
             scope

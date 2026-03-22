@@ -119,6 +119,8 @@ class Type < ApplicationRecord
       "WHEN #{name_column} = #{connection.quote(type_name)} THEN #{connection.quote(translated_name)}"
     end.join(" ")
 
+    # The outer CASE keeps non-standard/custom type names untouched.
+    # The inner CASE only maps known seeded standard names to their localized labels.
     <<~SQL.squish
       CASE
       WHEN #{standard_column} THEN CASE #{cases} ELSE #{name_column} END
