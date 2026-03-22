@@ -310,14 +310,31 @@ RSpec.describe "Projects lists table display and actions", :js, with_settings: {
         login_as(admin)
         visit projects_path
 
-        expect(page).to have_test_selector("projects-bulk-delete-check-all")
-
         within "#project-#{project.id}" do
           check "project-list-bulk-delete-#{project.id}", allow_label_click: true
         end
 
         expect(page).to have_checked_field("project-list-bulk-delete-#{project.id}")
-        expect(page).to have_button("Delete selected")
+        expect(page).to have_button("删除选择")
+      end
+
+      specify "bulk delete validates selection and asks for confirmation" do
+        login_as(admin)
+        visit projects_path
+
+        expect(page).not_to have_test_selector("projects-bulk-delete-check-all")
+
+        accept_alert "请选择项目" do
+          click_button "删除选择"
+        end
+
+        within "#project-#{project.id}" do
+          check "project-list-bulk-delete-#{project.id}", allow_label_click: true
+        end
+
+        dismiss_confirm "是否确认删除选择的项目？" do
+          click_button "删除选择"
+        end
       end
 
       specify "flash sortBy is being escaped" do
