@@ -709,6 +709,10 @@ zh-CN:
       search:
         label: 项目名称过滤器
         placeholder: 按项目名称搜索
+      bulk_delete:
+        submit: 删除选择
+        no_selection: 请选择项目
+        confirm: 是否确认删除选择的项目？
     lists:
       active: "有效项目"
       my: "我的项目"

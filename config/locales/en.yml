@@ -773,9 +773,9 @@ en:
         label: Project name filter
         placeholder: Search by project name
       bulk_delete:
-        submit: 删除选择
-        no_selection: 请选择项目
-        confirm: 是否确认删除选择的项目？
+        submit: Delete selected
+        no_selection: Please select projects.
+        confirm: Are you sure you want to delete the selected projects?
         checkbox_label: "Select project %{name} for deletion"
     lists:
       active: "Active projects"
