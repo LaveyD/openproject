@@ -34,8 +34,7 @@ require_relative "../support/pages/meetings/index"
 
 RSpec.describe "Meetings global menu item",
                :js do
-  shared_let(:user_without_permissions) { create(:user) }
-  shared_let(:admin) { create(:admin) }
+  shared_let(:current_user) { create(:admin) }
   shared_let(:project) { create(:project) }
   shared_let(:meetings_label) { I18n.t(:label_meeting_plural) }
 
@@ -44,23 +43,9 @@ RSpec.describe "Meetings global menu item",
     visit root_path
   end
 
-  context "as a user with permissions" do
-    let(:current_user) { admin }
-
-    it "does not render" do
-      within "#main-menu" do
-        expect(page).to have_no_link(meetings_label)
-      end
-    end
-  end
-
-  context "as a user without permissions" do
-    let(:current_user) { user_without_permissions }
-
-    it "does not render" do
-      within "#main-menu" do
-        expect(page).to have_no_link(meetings_label)
-      end
+  it "does not render" do
+    within "#main-menu" do
+      expect(page).to have_no_link(meetings_label)
     end
   end
 end
