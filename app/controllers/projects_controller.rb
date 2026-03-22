@@ -34,13 +34,13 @@ class ProjectsController < ApplicationController
   menu_item :overview
   menu_item :roadmap, only: :roadmap
 
-  before_action :find_project, except: %i[index new create destroy destroy_info]
+  before_action :find_project, except: %i[index new create destroy destroy_info bulk_destroy]
   before_action :find_project_including_archived, only: %i[destroy destroy_info]
   before_action :load_query_or_deny_access, only: %i[index]
   before_action :authorize,
                 only: %i[copy_form copy deactivate_work_package_attachments export_project_initiation_pdf]
   before_action :authorize_global, only: %i[new create]
-  before_action :require_admin, only: %i[destroy destroy_info]
+  before_action :require_admin, only: %i[destroy destroy_info bulk_destroy]
   before_action :find_optional_parent, only: :new
   before_action :find_optional_template, only: %i[new create]
 
@@ -157,6 +157,27 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, status: :see_other
   end
 
+  def bulk_destroy
+    projects = selected_projects
+    service_results = projects.map do |project|
+      ::Projects::ScheduleDeletionService
+        .new(user: current_user, model: project)
+        .call
+    end
+
+    failures = service_results.reject(&:success?)
+
+    if failures.empty?
+      flash[:notice] = I18n.t("projects.delete.bulk.scheduled", count: projects.count)
+    else
+      flash[:error] = I18n.t("projects.delete.bulk.schedule_failed",
+                             count: failures.count,
+                             errors: failures.map { |result| result.errors.full_messages.join("\n") }.join("\n"))
+    end
+
+    redirect_to projects_path, status: :see_other
+  end
+
   def destroy_info
     respond_with_dialog Projects::DeleteDialogComponent.new(project: @project)
   end
@@ -186,6 +207,13 @@ class ProjectsController < ApplicationController
     # The actions that use this method are only accessible to admins, so we can show them archived projects as well and
     # can skip the visible scope here.
     @project = Project.find(params[:id])
+  end
+
+  def selected_projects
+    project_ids = params.fetch(:project_ids, []).map(&:to_s).compact_blank
+    return Project.none if project_ids.empty?
+
+    Project.where(id: project_ids)
   end
 
   def from_template? = @template.present?

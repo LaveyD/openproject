@@ -61,6 +61,18 @@ module Projects
       "generic-table--container_visible-overflow generic-table--container_height-100"
     end
 
+    def bulk_delete_enabled?
+      current_user.admin?
+    end
+
+    def bulk_delete_form_id
+      "projects-bulk-delete-form"
+    end
+
+    def bulk_delete_checkable_id
+      "projects-bulk-delete-checkable"
+    end
+
     ##
     # The project sort by is handled differently
     def quick_action_table_header(column, options)
@@ -145,6 +157,7 @@ module Projects
 
         index = columns.index { |column| column.attribute == :name }
         columns.insert(index, ::Queries::Projects::Selects::Default.new(:hierarchy)) if index
+        columns.unshift(::Queries::Projects::Selects::Default.new(:selection)) if bulk_delete_enabled?
 
         columns
       end
