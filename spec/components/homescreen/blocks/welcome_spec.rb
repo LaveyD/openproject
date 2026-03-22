@@ -49,5 +49,13 @@ RSpec.describe Homescreen::Blocks::Welcome, :settings_reset, type: :component do
         expect(component.title).to eq("自定义欢迎语")
       end
     end
+
+    it "localizes the BIM seeded default welcome title for the current locale" do
+      Setting.welcome_title = I18n.t("seeds.bim.welcome.title", locale: :en)
+
+      I18n.with_locale(:"zh-CN") do
+        expect(component.title).to eq(I18n.t("seeds.bim.welcome.title"))
+      end
+    end
   end
 end
