@@ -351,8 +351,10 @@ module ApplicationHelper
     back_url
   end
 
-  def check_all_links(form_id = nil, &)
-    render(OpenProject::Common::CheckAllComponent.new(checkable_id: form_id), &)
+  def check_all_links(form_id = nil, system_arguments = {}, **additional_system_arguments, &)
+    system_arguments = system_arguments.merge(additional_system_arguments)
+
+    render(OpenProject::Common::CheckAllComponent.new(checkable_id: form_id, **system_arguments), &)
   end
 
   def current_layout

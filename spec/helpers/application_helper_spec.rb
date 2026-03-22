@@ -315,4 +315,26 @@ RSpec.describe ApplicationHelper do
       end
     end
   end
+
+  describe "#check_all_links" do
+    it "forwards checkable_id and system arguments to the component" do
+      expect(self).to receive(:render) do |component|
+        expect(component).to be_a(OpenProject::Common::CheckAllComponent)
+        expect(component.checkable_id).to eq("projects-form")
+        expect(component.instance_variable_get(:@system_arguments)).to include(data: { test_selector: "projects-bulk-delete-check-all" })
+      end
+
+      check_all_links("projects-form", data: { test_selector: "projects-bulk-delete-check-all" })
+    end
+
+    it "accepts legacy positional system arguments hash" do
+      expect(self).to receive(:render) do |component|
+        expect(component).to be_a(OpenProject::Common::CheckAllComponent)
+        expect(component.checkable_id).to eq("projects-form")
+        expect(component.instance_variable_get(:@system_arguments)).to include(data: { test_selector: "projects-bulk-delete-check-all" })
+      end
+
+      check_all_links("projects-form", { data: { test_selector: "projects-bulk-delete-check-all" } })
+    end
+  end
 end
