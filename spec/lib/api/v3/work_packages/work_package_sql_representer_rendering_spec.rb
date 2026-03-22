@@ -157,6 +157,28 @@ RSpec.describe API::V3::WorkPackages::WorkPackageSqlRepresenter, "rendering" do
     end
   end
 
+  context "for a standard seed type in translated locale" do
+    let(:type) { create(:type, name: "Task", is_standard: true) }
+    let(:select) { { type: {} } }
+    let(:expected) do
+      {
+        _links: {
+          type: {
+            href: api_v3_paths.type(type.id),
+            title: "任务"
+          }
+        }
+      }
+    end
+
+    it "renders the translated type title" do
+      I18n.with_locale(:"zh-CN") do
+        expect(json)
+          .to be_json_eql(expected.to_json)
+      end
+    end
+  end
+
   shared_examples_for "principal link" do |link_name, only_user: false|
     let(:select) { { link_name => {} } }
 
