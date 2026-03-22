@@ -29,7 +29,7 @@ See COPYRIGHT and LICENSE files for more details.
 <%= component_wrapper(tag: "turbo-frame") do %>
   <div class="project-list-page--table" data-controller="table-action-menu">
     <% if bulk_delete_enabled? %>
-      <%= check_all_links bulk_delete_checkable_id, data: { test_selector: "projects-bulk-delete-check-all" } %>
+      <%= helpers.check_all_links bulk_delete_checkable_id, data: { test_selector: "projects-bulk-delete-check-all" } %>
     <% end %>
     <div class="generic-table--flex-container">
       <div id="<%= bulk_delete_checkable_id %>" data-controller="<%= "checkable" if bulk_delete_enabled? %>">

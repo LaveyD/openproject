@@ -310,6 +310,8 @@ RSpec.describe "Projects lists table display and actions", :js, with_settings: {
         login_as(admin)
         visit projects_path
 
+        expect(page).to have_test_selector("projects-bulk-delete-check-all")
+
         within "#project-#{project.id}" do
           check "project-list-bulk-delete-#{project.id}", allow_label_click: true
         end
