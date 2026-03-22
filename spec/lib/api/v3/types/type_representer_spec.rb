@@ -31,7 +31,7 @@
 require "spec_helper"
 
 RSpec.describe API::V3::Types::TypeRepresenter do
-  let(:type) { build_stubbed(:type, color: build_stubbed(:color)) }
+  let(:type) { build_stubbed(:type, color: build_stubbed(:color), is_standard: false) }
   let(:representer) { described_class.new(type, current_user: double("current_user")) }
 
   include API::V3::Utilities::PathHelper
@@ -57,6 +57,16 @@ RSpec.describe API::V3::Types::TypeRepresenter do
 
     it "indicates its name" do
       expect(subject).to be_json_eql(type.name.to_json).at_path("name")
+    end
+
+    context "for standard seed type names" do
+      let(:type) { build_stubbed(:type, name: "Task", is_standard: true, color: build_stubbed(:color)) }
+
+      it "indicates the translated name" do
+        I18n.with_locale(:"zh-CN") do
+          expect(subject).to be_json_eql("任务".to_json).at_path("name")
+        end
+      end
     end
 
     it "indicates its color" do

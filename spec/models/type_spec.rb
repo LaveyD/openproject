@@ -144,6 +144,46 @@ RSpec.describe Type do
     end
   end
 
+  describe "#translated_name" do
+    context "when type is not standard" do
+      let(:type) { build_stubbed(:type, name: "Task", is_standard: false) }
+
+      it "returns the original name" do
+        expect(type.translated_name).to eq("Task")
+      end
+    end
+
+    context "when type is standard and known in seed translations" do
+      let(:type) { build_stubbed(:type, name: "Task", is_standard: true) }
+
+      it "returns the translated name for current locale" do
+        I18n.with_locale(:"zh-CN") do
+          expect(type.translated_name).to eq("任务")
+        end
+      end
+    end
+
+    context "when type is standard but not known in seed translations" do
+      let(:type) { build_stubbed(:type, name: "Custom standard", is_standard: true) }
+
+      it "falls back to the original name" do
+        expect(type.translated_name).to eq("Custom standard")
+      end
+    end
+  end
+
+  describe ".sql_translated_name_expression" do
+    it "builds a CASE statement with translated standard names" do
+      allow(I18n).to receive(:t).and_call_original
+
+      sql = described_class.sql_translated_name_expression(name_column: "types.name", standard_column: "types.is_standard")
+
+      expect(I18n).to have_received(:t).exactly(described_class::STANDARD_TYPE_TRANSLATION_KEYS.size).times
+      expect(sql).to include("WHEN types.name = 'Task'")
+      expect(sql).to include("ELSE types.name")
+    end
+  end
+
   describe "#work_package_attributes" do
     subject { type.work_package_attributes }
 

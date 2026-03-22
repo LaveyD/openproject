@@ -930,6 +930,26 @@ RSpec.describe API::V3::WorkPackages::Schema::WorkPackageSchemaRepresenter do
         let(:href_path) { "types" }
         let(:factory) { :type }
       end
+
+      context "for translated standard types" do
+        let(:standard_type) { create(:type, name: "Task", is_standard: true) }
+        let(:project) { build_stubbed(:project, types: [standard_type]) }
+        let(:work_package) do
+          build_stubbed(:work_package, project:, type: standard_type) do |wp|
+            allow(wp)
+              .to receive(:available_custom_fields)
+                    .and_return(available_custom_fields)
+          end
+        end
+
+        it "renders translated titles for allowed values" do
+          I18n.with_locale(:"zh-CN") do
+            expect(subject)
+              .to be_json_eql("任务".to_json)
+                    .at_path("type/_links/allowedValues/0/title")
+          end
+        end
+      end
     end
 
     describe "status" do

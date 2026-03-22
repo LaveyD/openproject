@@ -33,7 +33,7 @@ require "spec_helper"
 RSpec.describe API::V3::Queries::Columns::QueryRelationToTypeColumnRepresenter do
   include API::V3::Utilities::PathHelper
 
-  let(:type) { build_stubbed(:type) }
+  let(:type) { build_stubbed(:type, is_standard: false) }
   let(:column) { Queries::WorkPackages::Selects::RelationToTypeSelect.new(type) }
   let(:representer) { described_class.new(column) }
 
@@ -51,6 +51,18 @@ RSpec.describe API::V3::Queries::Columns::QueryRelationToTypeColumnRepresenter d
         let(:link) { "type" }
         let(:href) { api_v3_paths.type type.id }
         let(:title) { type.name }
+      end
+
+      context "for standard seed type names" do
+        let(:type) { build_stubbed(:type, name: "Task", is_standard: true) }
+
+        it "renders the translated type link title" do
+          I18n.with_locale(:"zh-CN") do
+            expect(subject)
+              .to be_json_eql("任务".to_json)
+                    .at_path("_links/type/title")
+          end
+        end
       end
     end
 

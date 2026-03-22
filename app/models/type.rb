@@ -29,6 +29,16 @@
 #++
 
 class Type < ApplicationRecord
+  STANDARD_TYPE_TRANSLATION_KEYS = {
+    "Task" => "seeds.standard.types.item_0.name",
+    "Milestone" => "seeds.standard.types.item_1.name",
+    "Summary task" => "seeds.standard.types.item_2.name",
+    "Feature" => "seeds.standard.types.item_3.name",
+    "Epic" => "seeds.standard.types.item_4.name",
+    "User story" => "seeds.standard.types.item_5.name",
+    "Bug" => "seeds.standard.types.item_6.name"
+  }.freeze
+
   # Work Package attributes for this type
   # and constraints to specific attributes (by plugins).
   include ::Type::Attributes
@@ -82,6 +92,15 @@ class Type < ApplicationRecord
 
   delegate :to_s, to: :name
 
+  def translated_name
+    return name unless is_standard?
+
+    translation_key = STANDARD_TYPE_TRANSLATION_KEYS[name]
+    return name unless translation_key
+
+    I18n.t(translation_key, default: name)
+  end
+
   def <=>(other)
     name <=> other.name
   end
@@ -92,6 +111,22 @@ class Type < ApplicationRecord
       workflow_table.project(workflow_table[foreign_key]).where(workflow_table[:type_id].in(types))
     end
     Status.where(status_table[:id].in(old_id_subselect).or(status_table[:id].in(new_id_subselect)))
+  end
+
+  def self.sql_translated_name_expression(name_column:, standard_column:)
+    cases = STANDARD_TYPE_TRANSLATION_KEYS.map do |type_name, translation_key|
+      translated_name = I18n.t(translation_key, default: type_name)
+      "WHEN #{name_column} = #{connection.quote(type_name)} THEN #{connection.quote(translated_name)}"
+    end.join(" ")
+
+    # The outer CASE keeps non-standard/custom type names untouched.
+    # The inner CASE only maps known seeded standard names to their localized labels.
+    <<~SQL.squish
+      CASE
+      WHEN #{standard_column} THEN CASE #{cases} ELSE #{name_column} END
+      ELSE #{name_column}
+      END
+    SQL
   end
 
   def self.standard_type

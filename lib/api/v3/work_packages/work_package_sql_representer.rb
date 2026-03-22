@@ -61,7 +61,7 @@ module API
              join: {
                table: :types,
                condition: "types.id = work_packages.type_id",
-               select: ["types.name type_name"]
+               select: ["#{Type.sql_translated_name_expression(name_column: 'types.name', standard_column: 'types.is_standard')} type_name"]
              }
 
         associated_user_link :author
