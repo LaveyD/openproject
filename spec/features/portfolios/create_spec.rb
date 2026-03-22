@@ -53,8 +53,8 @@ RSpec.describe "Portfolios",
 
   current_user { user_with_permissions }
 
-  context "with enterprise feature enabled", with_ee: :portfolio_management do
-    it "can create a portfolio", with_flag: { portfolio_models: true } do
+  context "when creating portfolios", with_flag: { portfolio_models: true } do
+    it "can create a portfolio" do
       projects_page.visit!
       projects_page.create_new_workspace
 
@@ -83,7 +83,7 @@ RSpec.describe "Portfolios",
       expect(portfolio.parent).to be_nil
     end
 
-    it "redirects to portfolios#index when users cancels", with_flag: { portfolio_models: true } do
+    it "redirects to portfolios#index when users cancels" do
       visit new_portfolio_path
 
       expect(page).to have_heading "New portfolio"
@@ -92,7 +92,7 @@ RSpec.describe "Portfolios",
       expect(page).to have_current_path portfolios_path
     end
 
-    context "without the necessary permissions to create portfolios", with_flag: { portfolio_models: true } do
+    context "without the necessary permissions to create portfolios" do
       current_user { create(:user) }
 
       it "cannot create the portfolio" do
@@ -108,19 +108,6 @@ RSpec.describe "Portfolios",
 
         expect(page).to have_content "[Error 403] You are not authorized to access this page."
       end
-    end
-  end
-
-  context "without enterprise feature enabled", with_ee: [] do
-    it "shows enterprise banner instead of the form", with_flag: { portfolio_models: true } do
-      projects_page.visit!
-      projects_page.create_new_workspace
-
-      expect(page).to have_heading "New portfolio"
-
-      expect(page).to have_no_button "Continue"
-
-      expect(page).to have_enterprise_banner(:premium, class: "op-enterprise-banner_large")
     end
   end
 end

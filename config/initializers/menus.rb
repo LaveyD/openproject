@@ -42,7 +42,6 @@ Redmine::MenuManager.map :top_menu do |menu|
                 (User.current.allowed_globally?(:add_portfolios) ||
                   Project.portfolio.allowed_to(User.current, :view_project).any?)
             },
-            enterprise_feature: :portfolio_management
 
   # projects menu will be added by
   # Redmine::MenuManager::TopMenuHelper#render_projects_top_menu_node
