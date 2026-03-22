@@ -154,4 +154,13 @@ RSpec.describe "Homescreen", "index" do
       expect(page).to have_no_css(".widget-box--blocks--upsell-container")
     end
   end
+
+  describe "News block" do
+    it "does not render the news card on homescreen" do
+      login_as user
+      visit root_url
+
+      expect(page).to have_no_css("#homescreen-blocks-news-box")
+    end
+  end
 end
