@@ -41,7 +41,7 @@ Redmine::MenuManager.map :top_menu do |menu|
                 (User.current.logged? || !Setting.login_required?) &&
                 (User.current.allowed_globally?(:add_portfolios) ||
                   Project.portfolio.allowed_to(User.current, :view_project).any?)
-            },
+            }
 
   # projects menu will be added by
   # Redmine::MenuManager::TopMenuHelper#render_projects_top_menu_node
