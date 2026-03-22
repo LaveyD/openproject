@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# -- copyright
+#-- copyright
 # OpenProject is an open source project management software.
 # Copyright (C) the OpenProject GmbH
 #
@@ -26,35 +26,27 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 # See COPYRIGHT and LICENSE files for more details.
-# ++
+#++
 
-module Homescreen
-  module Blocks
-    class Welcome < Grids::WidgetComponent
-      include OpenProject::TextFormatting
-      include HomescreenHelper
+require "rails_helper"
 
-      def title
-        current_title = Setting.welcome_title.presence
-        return organization_name unless current_title
+RSpec.describe Homescreen::Blocks::Welcome, :settings_reset, type: :component do
+  subject(:component) { described_class.new }
 
-        default_title_translations.each do |seed_translation_key|
-          english_default_title = I18n.t(seed_translation_key, locale: :en, default: nil)
-          next unless english_default_title.present? && current_title == english_default_title
+  describe "#title" do
+    it "localizes the seeded default welcome title for the current locale" do
+      Setting.welcome_title = I18n.t("seeds.standard.welcome.title", locale: :en)
 
-          return I18n.t(seed_translation_key, default: current_title)
-        end
-
-        current_title
+      I18n.with_locale(:"zh-CN") do
+        expect(component.title).to eq(I18n.t("seeds.standard.welcome.title"))
       end
+    end
 
-      private
+    it "keeps a custom welcome title unchanged" do
+      Setting.welcome_title = "自定义欢迎语"
 
-      def default_title_translations
-        [
-          "seeds.standard.welcome.title",
-          "seeds.bim.welcome.title"
-        ]
+      I18n.with_locale(:"zh-CN") do
+        expect(component.title).to eq("自定义欢迎语")
       end
     end
   end

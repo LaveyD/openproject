@@ -53,9 +53,6 @@ OpenProject::Static::Homescreen.manage :blocks do |blocks|
       if: Proc.new { User.current.logged? }
     },
     {
-      name: "news"
-    },
-    {
       name: "community",
       if: Proc.new { OpenProject::Configuration.show_community_links? }
     },
