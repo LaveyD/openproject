@@ -310,14 +310,52 @@ RSpec.describe "Projects lists table display and actions", :js, with_settings: {
         login_as(admin)
         visit projects_path
 
-        expect(page).to have_test_selector("projects-bulk-delete-check-all")
-
         within "#project-#{project.id}" do
           check "project-list-bulk-delete-#{project.id}", allow_label_click: true
         end
 
         expect(page).to have_checked_field("project-list-bulk-delete-#{project.id}")
         expect(page).to have_button("Delete selected")
+      end
+
+      specify "bulk delete validates selection and asks for confirmation" do
+        login_as(admin)
+        visit projects_path
+
+        expect(page).not_to have_test_selector("projects-bulk-delete-check-all")
+
+        accept_alert I18n.t("projects.index.bulk_delete.no_selection") do
+          click_button I18n.t("projects.index.bulk_delete.submit")
+        end
+
+        within "#project-#{project.id}" do
+          check "project-list-bulk-delete-#{project.id}", allow_label_click: true
+        end
+
+        dismiss_confirm I18n.t("projects.index.bulk_delete.confirm") do
+          click_button I18n.t("projects.index.bulk_delete.submit")
+        end
+      end
+
+      specify "bulk delete uses zh-CN labels and messages" do
+        login_as(admin)
+        I18n.with_locale(:"zh-CN") do
+          visit projects_path
+
+          expect(page).not_to have_test_selector("projects-bulk-delete-check-all")
+
+          accept_alert "请选择项目" do
+            click_button "删除选择"
+          end
+
+          within "#project-#{project.id}" do
+            check "project-list-bulk-delete-#{project.id}", allow_label_click: true
+          end
+
+          dismiss_confirm "是否确认删除选择的项目？" do
+            click_button "删除选择"
+          end
+        end
       end
 
       specify "flash sortBy is being escaped" do

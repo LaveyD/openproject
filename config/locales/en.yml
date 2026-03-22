@@ -774,6 +774,8 @@ en:
         placeholder: Search by project name
       bulk_delete:
         submit: Delete selected
+        no_selection: Please select projects.
+        confirm: Are you sure you want to delete the selected projects?
         checkbox_label: "Select project %{name} for deletion"
     lists:
       active: "Active projects"
