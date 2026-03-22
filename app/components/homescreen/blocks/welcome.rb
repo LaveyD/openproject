@@ -40,6 +40,7 @@ module Homescreen
             .map { |seed_translation_key| [I18n.t(seed_translation_key, locale: :en, default: nil), seed_translation_key] }
             .select { |english_title, _| english_title.present? }
             .to_h
+            .merge(legacy_default_title_translation_keys_by_english_title)
         end
 
         private
@@ -49,6 +50,12 @@ module Homescreen
             "seeds.standard.welcome.title",
             "seeds.bim.welcome.title"
           ]
+        end
+
+        def legacy_default_title_translation_keys_by_english_title
+          {
+            "Welcome to OpenProject" => "seeds.standard.welcome.title"
+          }
         end
       end
 

@@ -42,6 +42,14 @@ RSpec.describe Homescreen::Blocks::Welcome, :settings_reset, type: :component do
       end
     end
 
+    it "localizes the legacy seeded welcome title without punctuation" do
+      Setting.welcome_title = "Welcome to OpenProject"
+
+      I18n.with_locale(:"zh-CN") do
+        expect(component.title).to eq(I18n.t("seeds.standard.welcome.title"))
+      end
+    end
+
     it "keeps a custom welcome title unchanged" do
       Setting.welcome_title = "自定义欢迎语"
 
