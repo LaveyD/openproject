@@ -306,6 +306,18 @@ RSpec.describe "Projects lists table display and actions", :js, with_settings: {
         expect(page).to have_no_modal "Delete project"
       end
 
+      specify "projects can be selected for bulk delete" do
+        login_as(admin)
+        visit projects_path
+
+        within "#project-#{project.id}" do
+          check "project-list-bulk-delete-#{project.id}", allow_label_click: true
+        end
+
+        expect(page).to have_checked_field("project-list-bulk-delete-#{project.id}")
+        expect(page).to have_button("Delete selected")
+      end
+
       specify "flash sortBy is being escaped" do
         login_as(admin)
         visit projects_path(sortBy: "[[\"><script src='/foobar.js'></script>\",\"\"]]")

@@ -300,6 +300,19 @@ module Projects
       end
     end
 
+    def selection
+      return unless table.bulk_delete_enabled?
+
+      helpers.styled_check_box_tag(
+        "project_ids[]",
+        project.id,
+        false,
+        data: { checkable_target: "checkbox" },
+        id: "project-list-bulk-delete-#{project.id}",
+        "aria-label": I18n.t("projects.index.bulk_delete.checkbox_label", name: project.name)
+      )
+    end
+
     def action_menu
       render(Primer::Alpha::ActionMenu.new(test_selector: "project-list-row--action-menu")) do |menu|
         menu.with_show_button(scheme: :invisible,

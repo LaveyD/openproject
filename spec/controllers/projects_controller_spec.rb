@@ -510,6 +510,65 @@ RSpec.describe ProjectsController do
     end
   end
 
+  describe "#bulk_destroy" do
+    let!(:project_a) { create(:project) }
+    let!(:project_b) { create(:project) }
+    let(:request) { delete :bulk_destroy, params: { project_ids: selected_project_ids } }
+    let(:selected_project_ids) { [project_a.id, project_b.id] }
+
+    let(:result_a) { instance_double(ServiceResult, success?: true) }
+    let(:result_b) { instance_double(ServiceResult, success?: true) }
+
+    before do
+      deletion_service_a = instance_double(Projects::ScheduleDeletionService, call: result_a)
+      deletion_service_b = instance_double(Projects::ScheduleDeletionService, call: result_b)
+
+      allow(Projects::ScheduleDeletionService)
+        .to receive(:new)
+              .with(user: admin, model: project_a)
+              .and_return(deletion_service_a)
+
+      allow(Projects::ScheduleDeletionService)
+        .to receive(:new)
+              .with(user: admin, model: project_b)
+              .and_return(deletion_service_b)
+    end
+
+    context "when all service calls succeed" do
+      it "prints success" do
+        request
+
+        expect(response).to be_redirect
+        expect(flash[:notice]).to eq I18n.t("projects.delete.bulk.scheduled", count: 2)
+      end
+    end
+
+    context "when one service call fails" do
+      let(:errors) { instance_double(ActiveModel::Errors, full_messages: ["Could not schedule deletion"]) }
+      let(:result_b) { instance_double(ServiceResult, success?: false, errors:) }
+
+      it "prints a failure message" do
+        request
+
+        expect(response).to be_redirect
+        expect(flash[:error]).to eq I18n.t("projects.delete.bulk.schedule_failed",
+                                           count: 1,
+                                           errors: "Could not schedule deletion")
+      end
+    end
+
+    context "when no project ids are provided" do
+      let(:selected_project_ids) { [] }
+
+      it "prints a zero-selection notice" do
+        request
+
+        expect(response).to be_redirect
+        expect(flash[:notice]).to eq I18n.t("projects.delete.bulk.scheduled", count: 0)
+      end
+    end
+  end
+
   describe "with an existing project" do
     let(:project) { create(:project, identifier: "blog") }
 

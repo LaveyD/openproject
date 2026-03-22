@@ -752,6 +752,14 @@ en:
     delete:
       scheduled: "Deletion has been scheduled and is performed in the background. You will be notified of the result."
       schedule_failed: "Project cannot be deleted: %{errors}"
+      bulk:
+        scheduled:
+          zero: "No projects were selected."
+          one: "Deletion has been scheduled for 1 project and is performed in the background. You will be notified of the result."
+          other: "Deletion has been scheduled for %{count} projects and is performed in the background. You will be notified of the result."
+        schedule_failed:
+          one: "Deletion could not be scheduled for 1 selected project: %{errors}"
+          other: "Deletion could not be scheduled for %{count} selected projects: %{errors}"
       failed: "Deletion of project '%{name}' has failed"
       failed_text: "The request to delete project '%{name}' has failed. The project was left archived."
       completed: "Deletion of project '%{name}' completed"
@@ -764,6 +772,9 @@ en:
       search:
         label: Project name filter
         placeholder: Search by project name
+      bulk_delete:
+        submit: Delete selected
+        checkbox_label: "Select project %{name} for deletion"
     lists:
       active: "Active projects"
       my: "My projects"
