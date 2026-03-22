@@ -150,19 +150,6 @@ module OpenProject::Meeting
            icon: "comment-discussion",
            if: should_render_global_menu_item
 
-      menu :global_menu,
-           :meetings, { controller: "/meetings", action: "index", project_id: nil },
-           caption: :label_meeting_plural,
-           after: :boards,
-           icon: "comment-discussion",
-           if: should_render_global_menu_item
-
-      menu :global_menu,
-           :meetings_query_select, { controller: "/meetings", action: "index", project_id: nil },
-           parent: :meetings,
-           partial: "meetings/menus/menu",
-           if: should_render_global_menu_item
-
       ActiveSupport::Inflector.inflections do |inflect|
         inflect.uncountable "meeting_minutes"
       end

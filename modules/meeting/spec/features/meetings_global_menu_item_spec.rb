@@ -39,36 +39,23 @@ RSpec.describe "Meetings global menu item",
   shared_let(:project) { create(:project) }
   shared_let(:meetings_label) { I18n.t(:label_meeting_plural) }
 
-  let(:meetings_page) { Pages::Meetings::Index.new(project: nil) }
-
   before do
     login_as current_user
+    visit root_path
   end
 
   context "as a user with permissions" do
     let(:current_user) { admin }
 
-    before do
-      meetings_page.navigate_by_global_menu
-    end
-
-    it "navigates to the global meetings index page" do
-      expect(page).to have_current_path("/meetings")
-    end
-
-    specify '"My meetings" is the default filter set' do
+    it "does not render" do
       within "#main-menu" do
-        expect(page).to have_css(".selected", text: "My meetings")
+        expect(page).to have_no_link(meetings_label)
       end
     end
   end
 
   context "as a user without permissions" do
     let(:current_user) { user_without_permissions }
-
-    before do
-      visit root_path
-    end
 
     it "does not render" do
       within "#main-menu" do

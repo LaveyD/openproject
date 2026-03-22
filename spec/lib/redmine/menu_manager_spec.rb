@@ -90,9 +90,7 @@ RSpec.describe Redmine::MenuManager do
                       :gantt,
                       :team_planners,
                       :boards,
-                      :news,
-                      :cost_reports_global,
-                      :meetings)
+                      :cost_reports_global)
       end
     end
 

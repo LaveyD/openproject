@@ -251,17 +251,6 @@ Redmine::MenuManager.map :global_menu do |menu|
             parent: :work_packages,
             partial: "work_packages/menus/menu"
 
-  # News
-  menu.push :news,
-            { controller: "/news", project_id: nil, action: "index" },
-            caption: I18n.t("label_news_plural"),
-            icon: "megaphone",
-            after: :boards,
-            if: ->(_) {
-              (User.current.logged? || !Setting.login_required?) &&
-                User.current.allowed_in_any_project?(:view_news) &&
-                Project.visible.active.has_module(:news).present?
-            }
 end
 
 Redmine::MenuManager.map :notifications_menu do |menu|
