@@ -63,10 +63,6 @@ OpenProject::Static::Homescreen.manage :blocks do |blocks|
       name: "administration",
       if: Proc.new { User.current.admin? }
     },
-    {
-      name: "upsell",
-      if: Proc.new { !(EnterpriseToken.active? || EnterpriseToken.hide_banners?) || EnterpriseToken.trial_only? }
-    }
   )
 end
 
