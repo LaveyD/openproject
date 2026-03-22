@@ -33,12 +33,7 @@ See COPYRIGHT and LICENSE files for more details.
     <% end %>
     <div class="generic-table--flex-container">
       <div id="<%= bulk_delete_checkable_id %>" data-controller="<%= "checkable" if bulk_delete_enabled? %>">
-        <%= form_tag bulk_destroy_projects_path, method: :delete, id: bulk_delete_form_id do %>
-          <% if bulk_delete_enabled? %>
-            <div class="mb-2">
-              <%= helpers.styled_button_tag t("projects.index.bulk_delete.submit"), type: :submit, class: "button -danger" %>
-            </div>
-          <% end %>
+        <% table_markup = capture do %>
           <div class="generic-table--container <%= container_class %>">
             <div class="generic-table--results-container">
               <table class="generic-table" data-controller="table-highlighting" <%= table_id ? "id=\"#{table_id}\"".html_safe : "" %>>
@@ -111,6 +106,17 @@ See COPYRIGHT and LICENSE files for more details.
               <% end %>
             </div>
           </div>
+        <% end %>
+
+        <% if bulk_delete_enabled? %>
+          <%= form_with url: bulk_destroy_projects_path, method: :delete, id: bulk_delete_form_id do %>
+            <div class="mb-2">
+              <%= helpers.styled_button_tag t("projects.index.bulk_delete.submit"), type: :submit, class: "button -danger" %>
+            </div>
+            <%= table_markup %>
+          <% end %>
+        <% else %>
+          <%= table_markup %>
         <% end %>
       </div>
     </div>

@@ -511,8 +511,8 @@ RSpec.describe ProjectsController do
   end
 
   describe "#bulk_destroy" do
-    let(:project_a) { build_stubbed(:project, id: 42) }
-    let(:project_b) { build_stubbed(:project, id: 43) }
+    let!(:project_a) { create(:project) }
+    let!(:project_b) { create(:project) }
     let(:request) { delete :bulk_destroy, params: { project_ids: selected_project_ids } }
     let(:selected_project_ids) { [project_a.id, project_b.id] }
 
@@ -520,8 +520,6 @@ RSpec.describe ProjectsController do
     let(:result_b) { instance_double(ServiceResult, success?: true) }
 
     before do
-      allow(Project).to receive(:where).with(id: selected_project_ids.map(&:to_s)).and_return([project_a, project_b])
-
       deletion_service_a = instance_double(Projects::ScheduleDeletionService, call: result_a)
       deletion_service_b = instance_double(Projects::ScheduleDeletionService, call: result_b)
 
@@ -556,6 +554,17 @@ RSpec.describe ProjectsController do
         expect(flash[:error]).to eq I18n.t("projects.delete.bulk.schedule_failed",
                                            count: 1,
                                            errors: "Could not schedule deletion")
+      end
+    end
+
+    context "when no project ids are provided" do
+      let(:selected_project_ids) { [] }
+
+      it "prints a zero-selection notice" do
+        request
+
+        expect(response).to be_redirect
+        expect(flash[:notice]).to eq I18n.t("projects.delete.bulk.scheduled", count: 0)
       end
     end
   end

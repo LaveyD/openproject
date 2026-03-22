@@ -159,6 +159,11 @@ class ProjectsController < ApplicationController
 
   def bulk_destroy
     projects = selected_projects
+    if projects.empty?
+      flash[:notice] = I18n.t("projects.delete.bulk.scheduled", count: 0)
+      return redirect_to projects_path, status: :see_other
+    end
+
     service_results = projects.map do |project|
       ::Projects::ScheduleDeletionService
         .new(user: current_user, model: project)
@@ -172,7 +177,7 @@ class ProjectsController < ApplicationController
     else
       flash[:error] = I18n.t("projects.delete.bulk.schedule_failed",
                              count: failures.count,
-                             errors: failures.map { |result| result.errors.full_messages.join("\n") }.join("\n"))
+                             errors: failures.flat_map { |result| result.errors.full_messages }.to_sentence)
     end
 
     redirect_to projects_path, status: :see_other
@@ -213,7 +218,7 @@ class ProjectsController < ApplicationController
     project_ids = params.fetch(:project_ids, []).map(&:to_s).compact_blank
     return Project.none if project_ids.empty?
 
-    Project.where(id: project_ids)
+    Project.visible(current_user).where(id: project_ids)
   end
 
   def from_template? = @template.present?
