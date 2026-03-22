@@ -32,8 +32,7 @@
 require "spec_helper"
 
 RSpec.describe "News global menu item spec", :js do
-  shared_let(:admin) { create(:admin) }
-  shared_let(:user_without_permissions) { create(:user) }
+  shared_let(:current_user) { create(:admin) }
   shared_let(:project) { create(:project) }
 
   before do
@@ -41,29 +40,9 @@ RSpec.describe "News global menu item spec", :js do
     visit root_path
   end
 
-  context "as a user with permissions" do
-    let(:current_user) { admin }
-
-    it "navigates to the global news page" do
-      within "#main-menu" do
-        click_link "News"
-      end
-
-      expect(page).to have_current_path(news_index_path)
-
-      within "#main-menu" do
-        expect(page).to have_css(".selected", text: "News")
-      end
-    end
-  end
-
-  context "as a user without permissions" do
-    let(:current_user) { user_without_permissions }
-
-    it "doesn't render the menu item" do
-      within "#main-menu" do
-        expect(page).to have_no_link "News"
-      end
+  it "doesn't render the menu item" do
+    within "#main-menu" do
+      expect(page).to have_no_link "News"
     end
   end
 end
