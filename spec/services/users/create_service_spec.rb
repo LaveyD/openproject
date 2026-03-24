@@ -64,4 +64,57 @@ RSpec.describe Users::CreateService do
       end
     end
   end
+
+  describe "#with_primary_key_retry" do
+    let(:service) { described_class.new(user: build_stubbed(:admin)) }
+    let(:connection) { instance_double(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) }
+    let(:users_primary_key_error_message) do
+      "PG::UniqueViolation: duplicate key value violates unique constraint \"users_pkey\""
+    end
+    let(:users_mail_unique_error_message) do
+      "PG::UniqueViolation: duplicate key value violates unique constraint \"index_users_on_mail\""
+    end
+
+    it "resets users sequence and retries once for users primary key collisions" do
+      attempts = 0
+      allow(User).to receive(:connection).and_return(connection)
+      expect(connection).to receive(:reset_pk_sequence!).with(User.table_name).once
+
+      result = service.send(:with_primary_key_retry) do
+        attempts += 1
+        raise ActiveRecord::RecordNotUnique, users_primary_key_error_message if attempts == 1
+
+        :ok
+      end
+
+      expect(result).to eq(:ok)
+      expect(attempts).to eq(2)
+    end
+
+    it "re-raises when users primary key collisions happen repeatedly" do
+      attempts = 0
+      allow(User).to receive(:connection).and_return(connection)
+      expect(connection).to receive(:reset_pk_sequence!).with(User.table_name).once
+
+      expect do
+        service.send(:with_primary_key_retry) do
+          attempts += 1
+          raise ActiveRecord::RecordNotUnique, users_primary_key_error_message
+        end
+      end.to raise_error(ActiveRecord::RecordNotUnique)
+
+      expect(attempts).to eq(2)
+    end
+
+    it "does not retry on non-user primary key unique collisions" do
+      allow(User).to receive(:connection).and_return(connection)
+      expect(connection).not_to receive(:reset_pk_sequence!)
+
+      expect do
+        service.send(:with_primary_key_retry) do
+          raise ActiveRecord::RecordNotUnique, users_mail_unique_error_message
+        end
+      end.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+  end
 end

@@ -33,9 +33,17 @@ require "concerns/user_invitation"
 
 module Users
   class CreateService < ::BaseServices::Create
+    USERS_PRIMARY_KEY_CONSTRAINT = "users_pkey"
+
     private
 
     def persist(call)
+      with_primary_key_retry do
+        persist_user_creation(call)
+      end
+    end
+
+    def persist_user_creation(call)
       new_user = call.result
 
       return super unless new_user.invited?
@@ -58,6 +66,41 @@ module Users
       new_user.errors.add :base, I18n.t(:error_can_not_invite_user) unless invited.is_a? User
 
       ServiceResult.new(success: new_user.errors.empty?, result: invited)
+    end
+
+    def with_primary_key_retry
+      retried = false
+
+      begin
+        yield
+      rescue ActiveRecord::RecordNotUnique => error
+        raise if retried || !users_primary_key_violation?(error)
+
+        retried = true
+        User.connection.reset_pk_sequence!(User.table_name)
+        retry
+      end
+    end
+
+    def users_primary_key_violation?(error)
+      unique_constraint_name(error) == USERS_PRIMARY_KEY_CONSTRAINT ||
+        error.message.match?(/unique constraint "#{USERS_PRIMARY_KEY_CONSTRAINT}"/)
+    end
+
+    def unique_constraint_name(error)
+      result = error.cause&.result
+      constraint_name_field = pg_diag_constraint_name
+
+      return unless result&.respond_to?(:error_field) && constraint_name_field
+
+      result.error_field(constraint_name_field)
+    end
+
+    def pg_diag_constraint_name
+      return unless defined?(PG::Result)
+      return unless PG::Result.const_defined?(:PG_DIAG_CONSTRAINT_NAME)
+
+      PG::Result::PG_DIAG_CONSTRAINT_NAME
     end
   end
 end
