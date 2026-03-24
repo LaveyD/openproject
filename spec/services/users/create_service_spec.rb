@@ -76,7 +76,7 @@ RSpec.describe Users::CreateService do
 
       result = service.send(:with_primary_key_retry) do
         attempts += 1
-        raise ActiveRecord::RecordNotUnique, 'PG::UniqueViolation: duplicate key value violates unique constraint "users_pkey"' if attempts == 1
+        raise ActiveRecord::RecordNotUnique, "PG::UniqueViolation: duplicate key value violates unique constraint \"users_pkey\"" if attempts == 1
 
         :ok
       end

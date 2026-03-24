@@ -72,7 +72,7 @@ module Users
       begin
         yield
       rescue ActiveRecord::RecordNotUnique => error
-        raise unless !retried && users_primary_key_violation?(error)
+        raise if retried || !users_primary_key_violation?(error)
 
         retried = true
         ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
