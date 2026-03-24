@@ -36,6 +36,12 @@ module Users
     private
 
     def persist(call)
+      with_primary_key_retry do
+        persist_without_primary_key_retry(call)
+      end
+    end
+
+    def persist_without_primary_key_retry(call)
       new_user = call.result
 
       return super unless new_user.invited?
@@ -58,6 +64,24 @@ module Users
       new_user.errors.add :base, I18n.t(:error_can_not_invite_user) unless invited.is_a? User
 
       ServiceResult.new(success: new_user.errors.empty?, result: invited)
+    end
+
+    def with_primary_key_retry
+      retried = false
+
+      begin
+        yield
+      rescue ActiveRecord::RecordNotUnique => error
+        raise unless !retried && users_primary_key_violation?(error)
+
+        retried = true
+        ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
+        retry
+      end
+    end
+
+    def users_primary_key_violation?(error)
+      error.message.include?("users_pkey")
     end
   end
 end

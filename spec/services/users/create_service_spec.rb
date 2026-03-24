@@ -64,4 +64,25 @@ RSpec.describe Users::CreateService do
       end
     end
   end
+
+  describe "#with_primary_key_retry" do
+    let(:service) { described_class.new(user: build_stubbed(:admin)) }
+    let(:connection) { instance_double(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) }
+
+    it "resets users sequence and retries once for users primary key collisions" do
+      attempts = 0
+      allow(ActiveRecord::Base).to receive(:connection).and_return(connection)
+      expect(connection).to receive(:reset_pk_sequence!).with(User.table_name).once
+
+      result = service.send(:with_primary_key_retry) do
+        attempts += 1
+        raise ActiveRecord::RecordNotUnique, 'PG::UniqueViolation: duplicate key value violates unique constraint "users_pkey"' if attempts == 1
+
+        :ok
+      end
+
+      expect(result).to eq(:ok)
+      expect(attempts).to eq(2)
+    end
+  end
 end
