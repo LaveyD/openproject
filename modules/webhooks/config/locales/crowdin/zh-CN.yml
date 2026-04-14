@@ -38,7 +38,7 @@ zh-CN:
         internal_comment: "内部评论"
       explanation:
         text: >
-          在发生诸如创建工作包或更新项目之类的事件时，OpenProject 将向配置的 Web 端点发送一个 POST 请求。通常，会在 %{link}过后发送事件。
+          在发生诸如创建工作任务或更新项目之类的事件时，OpenProject 将向配置的 Web 端点发送一个 POST 请求。通常，会在 %{link}过后发送事件。
         link: 配置的聚合期
       status:
         enabled: 'Webhook 已启用'

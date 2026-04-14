@@ -497,7 +497,7 @@ zh-CN:
     page_titles:
       file_storages:
         delete: 是否删除文件存储空间？
-        subtitle: 添加外部文件存储以便在工作包中上传、链接和管理文件。
+        subtitle: 添加外部文件存储以便在工作任务中上传、链接和管理文件。
       managed_project_folders:
         subtitle: |-
           让 OpenProject 自动为每个项目创建文件夹。建议使用此方法，因为这样可以确保每个团队成员始终具有正确的访问权限。
@@ -532,8 +532,8 @@ zh-CN:
         name: SharePoint
         name_placeholder: 例如 SharePoint
     show_attachments_toggle:
-      description: 禁用此选项将隐藏工作包文件选项卡上的附件列表。 工作包描述中的文件仍将上传到内部附件存储。
-      label: 在工作包文件选项卡中显示附件
+      description: 禁用此选项将隐藏工作任务文件选项卡上的附件列表。 工作任务描述中的文件仍将上传到内部附件存储。
+      label: 在工作任务文件选项卡中显示附件
     storage_audience:
       documentation_intro: 请阅读我们的文档，了解有关以下选项和身份提供者配置的详细信息。
       idp:
@@ -549,9 +549,9 @@ zh-CN:
     upsell:
       one_drive:
         description: |-
-          将 OneDrive 驱动器作为文件存储空间与 OpenProject 集成。上传文件并直接将其链接到项目中的工作包。
+          将 OneDrive 驱动器作为文件存储空间与 OpenProject 集成。上传文件并直接将其链接到项目中的工作任务。
         title: OneDrive 集成
       sharepoint:
         description: |-
-          将 OSharePoint 站点作为文件存储空间与 OpenProject 集成。上传文件并直接将其链接到项目中的工作包。
+          将 OSharePoint 站点作为文件存储空间与 OpenProject 集成。上传文件并直接将其链接到项目中的工作任务。
         title: SharePoint 集成

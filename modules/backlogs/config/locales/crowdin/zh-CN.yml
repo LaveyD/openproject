@@ -42,7 +42,7 @@ zh-CN:
         work_package:
           attributes:
             blocks_ids:
-              can_only_contain_work_packages_of_current_sprint: "只可以包含当前冲刺 (sprint) 中的工作包 ID。"
+              can_only_contain_work_packages_of_current_sprint: "只可以包含当前冲刺 (sprint) 中的工作任务 ID。"
               must_block_at_least_one_work_package: "必须包含至少一个票证的 ID。"
             version_id:
               task_version_must_be_the_same_as_story_version: "必须与父级故事的版本相同。"
@@ -59,7 +59,7 @@ zh-CN:
     impediment: "障碍"
     label_versions_default_fold_state: "显示已折叠的版本"
     caption_versions_default_fold_state: "查看积压工作时，默认情况下不会展开版本。每个版本都必须手动展开。"
-    work_package_is_closed: "工作包已完成，当"
+    work_package_is_closed: "工作任务已完成，当"
     label_is_done_status: "状态 %{status_name} 表示已完成"
     points_label:
       other: "点"
@@ -122,7 +122,7 @@ zh-CN:
         cannot_be_story_type: "不能同时为故事类型"
   label_backlogs: "待办清单"
   label_backlogs_unconfigured: "您尚未配置待办清单。请转到“%{administration} > %{plugins}”，然后单击此插件的 %{configure} 链接。设置字段后，返回到此页面开始使用工具。"
-  label_blocks_ids: "被阻止的工作包 ID"
+  label_blocks_ids: "被阻止的工作任务 ID"
   label_column_in_backlog: "待办清单中的列"
   label_points_burn_down: "减少"
   label_points_burn_up: "增加"

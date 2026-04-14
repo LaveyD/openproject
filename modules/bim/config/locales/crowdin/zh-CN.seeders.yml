@@ -124,17 +124,17 @@ zh-CN:
 
                     但在开始之前，您应该知道这个示范项目分为两个不同的项目：
 
-                    1.  [施工项目]({{opSetting:base_url}}/projects/demo-planning-constructing-project)：在这里，您可以找到施工项目的经典角色、一些工作流和工作包。
-                    2.  [创建 BIM 模型]({{opSetting:base_url}}/projects/demo-bim-project)：此项目还提供 BIM 背景下的角色、工作流和工作包。
+                    1.  [施工项目]({{opSetting:base_url}}/projects/demo-planning-constructing-project)：在这里，您可以找到施工项目的经典角色、一些工作流和工作任务。
+                    2.  [创建 BIM 模型]({{opSetting:base_url}}/projects/demo-bim-project)：此项目还提供 BIM 背景下的角色、工作流和工作任务。
 
                     _请尝试执行以下步骤_：
 
                     1.  _邀请新成员加入您的项目_：→ 在项目导航中转到[成员]({{opSetting:base_url}}/projects/demo-construction-project/members)。
-                    2.  _查看项目中的工作_：→ 在项目导航中转到[工作包]({{opSetting:base_url}}/projects/demo-construction-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
-                    3.  _创建新的工作包_：→ 转到[工作包 → 创建]({{opSetting:base_url}}/projects/demo-construction-project/work_packages/new?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D&type=11)。
+                    2.  _查看项目中的工作_：→ 在项目导航中转到[工作任务]({{opSetting:base_url}}/projects/demo-construction-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
+                    3.  _创建新的工作任务_：→ 转到[工作任务 → 创建]({{opSetting:base_url}}/projects/demo-construction-project/work_packages/new?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D&type=11)。
                     4.  _创建并更新甘特图_：→ 在项目导航中转到[甘特图]({{opSetting:base_url}}/projects/demo-construction-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22assignee%22%2C%22responsible%22%5D%2C%22tv%22%3Atrue%2C%22tzl%22%3A%22weeks%22%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
                     5.  _激活更多模块_：→ 转到[项目设置 → 模块]({{opSetting:base_url}}/projects/demo-construction-project/settings/modules)。
-                    6.  _查看平铺视图，了解您的 BCF 问题_：→ 转到[工作包]({{opSetting:base_url}}/projects/demo-construction-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22id%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22card%22%7D)
+                    6.  _查看平铺视图，了解您的 BCF 问题_：→ 转到[工作任务]({{opSetting:base_url}}/projects/demo-construction-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22id%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22card%22%7D)
                     7.  _正在敏捷工作？查看我们的全新面板_：→ 转到[面板]({{opSetting:base_url}}/projects/demo-construction-project/boards)
 
                     在这里，您可以找到我们的[用户指南](https://www.openproject.org/docs/user-guide/)。
@@ -144,7 +144,7 @@ zh-CN:
                   name: 成员
               item_5:
                 options:
-                  name: 工作包
+                  name: 工作任务
               item_6:
                 options:
                   name: 里程碑
@@ -181,13 +181,13 @@ zh-CN:
                   text: |
                     很高兴您能加入！我们建议尝试几件事情来开始使用 OpenProject。
 
-                    在这里，您可以找到施工项目的经典角色、一些工作流和工作包。
+                    在这里，您可以找到施工项目的经典角色、一些工作流和工作任务。
 
                     _请尝试执行以下步骤_：
 
                     1.  _邀请新成员加入您的项目_：→ 在项目导航中转到[成员]({{opSetting:base_url}}/projects/demo-planning-constructing-project/members)。
-                    2.  _查看项目中的工作_：→ 在项目导航中转到[工作包]({{opSetting:base_url}}/projects/demo-planning-constructing-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
-                    3.  _创建新的工作包_：→ 转到[工作包 → 创建]({{opSetting:base_url}}/projects/demo-planning-constructing-project/work_packages/new?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D&type=11)。
+                    2.  _查看项目中的工作_：→ 在项目导航中转到[工作任务]({{opSetting:base_url}}/projects/demo-planning-constructing-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
+                    3.  _创建新的工作任务_：→ 转到[工作任务 → 创建]({{opSetting:base_url}}/projects/demo-planning-constructing-project/work_packages/new?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D&type=11)。
                     4.  _创建并更新甘特图_：→ 在项目导航中转到[甘特图]({{opSetting:base_url}}/projects/demo-planning-constructing-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22assignee%22%2C%22responsible%22%5D%2C%22tv%22%3Atrue%2C%22tzl%22%3A%22weeks%22%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
                     5.  _激活更多模块_：→ 转到[项目设置 → 模块]({{opSetting:base_url}}/projects/demo-planning-constructing-project/settings/modules)。
                     6.  _正在敏捷工作？查看我们全新的面板_：→ 转到[面板]({{opSetting:base_url}}/projects/demo-planning-constructing-project/boards)
@@ -199,7 +199,7 @@ zh-CN:
                   name: 成员
               item_5:
                 options:
-                  name: 工作包
+                  name: 工作任务
               item_6:
                 options:
                   name: 里程碑
@@ -233,7 +233,7 @@ zh-CN:
 
                     *通过与客户一起举办研讨会来确定客户需求
 
-                    *每个需求应代表一项任务及其相应的工作包
+                    *每个需求应代表一项任务及其相应的工作任务
 
                     *推导成本预估和时间框架
                 item_1:
@@ -457,18 +457,18 @@ zh-CN:
                   text: |
                     很高兴您能加入！我们建议尝试几件事情来开始使用 OpenProject。
 
-                    此演示项目提供 BIM 专有的角色、工作流和工作包。
+                    此演示项目提供 BIM 专有的角色、工作流和工作任务。
 
                     _请尝试执行以下步骤_：
 
                     1.  _邀请新成员加入您的项目_：→ 在项目导航中转到[成员]({{opSetting:base_url}}/projects/demo-bim-project/members)。
                     2.  _上传并查看 IFC 格式的 3D 模型_：→ 在项目导航中转到 [BCF]({{opSetting:base_url}}/projects/demo-bim-project/bcf)。
                     3.  _创建并管理在 IFC 模型中直接链接的 BCF 问题_：→ 转到 [BCF]({{opSetting:base_url}}/projects/demo-bim-project/bcf) → 创建。
-                    4.  _查看项目中的工作_：→ 在项目导航中转到[工作包]({{opSetting:base_url}}/projects/demo-bim-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
-                    5.  _创建新的工作包_：→ 转到[工作包 → 创建]({{opSetting:base_url}}/projects/demo-bim-project/work_packages/new?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D&type=11)。
+                    4.  _查看项目中的工作_：→ 在项目导航中转到[工作任务]({{opSetting:base_url}}/projects/demo-bim-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
+                    5.  _创建新的工作任务_：→ 转到[工作任务 → 创建]({{opSetting:base_url}}/projects/demo-bim-project/work_packages/new?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%7B%22n%22%3A%22bcfIssueAssociated%22%2C%22o%22%3A%22%3D%22%2C%22v%22%3A%5B%22f%22%5D%7D%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D&type=11)。
                     6.  _创建并更新甘特图_：→ 在项目导航中转到[甘特图]({{opSetting:base_url}}/projects/demo-bim-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22assignee%22%2C%22responsible%22%5D%2C%22tv%22%3Atrue%2C%22tzl%22%3A%22weeks%22%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22startDate%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22list%22%7D)。
                     7.  _激活更多模块_：→ 转到[项目设置 → 模块]({{opSetting:base_url}}/projects/demo-bim-project/settings/modules)。
-                    8.  _查看平铺视图，了解您的 BCF 问题_：→ 转到[工作包]({{opSetting:base_url}}/projects/demo-bim-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22id%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22card%22%7D)
+                    8.  _查看平铺视图，了解您的 BCF 问题_：→ 转到[工作任务]({{opSetting:base_url}}/projects/demo-bim-project/work_packages?query_props=%7B%22c%22%3A%5B%22type%22%2C%22id%22%2C%22subject%22%2C%22status%22%2C%22assignee%22%2C%22priority%22%5D%2C%22hl%22%3A%22priority%22%2C%22hi%22%3Atrue%2C%22g%22%3A%22%22%2C%22t%22%3A%22id%3Aasc%22%2C%22f%22%3A%5B%5D%2C%22pa%22%3A1%2C%22pp%22%3A100%2C%22dr%22%3A%22card%22%7D)
                     9.  _正在敏捷工作？查看我们全新的面板_：→ 转到[面板]({{opSetting:base_url}}/projects/demo-bim-project/boards)
 
                     在这里，您可以找到我们的[用户指南](https://www.openproject.org/docs/user-guide/)。
@@ -478,7 +478,7 @@ zh-CN:
                   name: 成员
               item_5:
                 options:
-                  name: 工作包
+                  name: 工作任务
               item_6:
                 options:
                   name: 里程碑
@@ -753,4 +753,4 @@ zh-CN:
                   name: 成员
               item_5:
                 options:
-                  name: 工作包
+                  name: 工作任务

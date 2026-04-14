@@ -26,7 +26,7 @@ zh-CN:
   activerecord:
     attributes:
       cost_entry:
-        work_package: "工作包"
+        work_package: "工作任务"
         overridden_costs: "覆盖的成本"
         spent: "已支出"
         spent_on: "日期"
@@ -52,7 +52,7 @@ zh-CN:
       time_entry:
         project: 项目
         user: 用户
-        work_package: 工作包
+        work_package: 工作任务
         subject: 主题
         hours: 小时
         comments: 评论
@@ -78,10 +78,10 @@ zh-CN:
       models:
         time_entry:
           invalid_time: "必须在 00:00-23:59之间。"
-          cannot_log_for_this_work_package: "无法记录该工作包的时间。"
+          cannot_log_for_this_work_package: "无法记录该工作任务的时间。"
           duplicate_ongoing: "此用户已存在一个进行中的时间记录。"
         work_package:
-          is_not_a_valid_target_for_cost_entries: "工作包 #%{id} 不是重新分配成本条目的有效目标。"
+          is_not_a_valid_target_for_cost_entries: "工作任务 #%{id} 不是重新分配成本条目的有效目标。"
           nullify_is_not_valid_for_cost_entries: "无法将成本条目分配到项目。"
   attributes:
     comment: "注释"
@@ -135,7 +135,7 @@ zh-CN:
   label_group_by_add: "添加分组字段"
   label_hourly_rate: "小时费率"
   label_include_deleted: "包括已删除"
-  label_work_package_filter_add: "添加工作包筛选器"
+  label_work_package_filter_add: "添加工作任务筛选器"
   label_kind: "类型"
   label_less_or_equal: "<="
   label_log_costs: "记录单位成本"
@@ -177,7 +177,7 @@ zh-CN:
   label_today_capitalized: "今天"
   label_view_mode_switcher: "更改视图"
   label_timer_since: "%{time} 开始"
-  placeholder_activity_select_work_package_first: 首先需要选择工作包
+  placeholder_activity_select_work_package_first: 首先需要选择工作任务
   notice_something_wrong: "出错了。请重试。"
   notice_successful_restore: "成功恢复。"
   notice_successful_lock: "锁定成功。"
@@ -210,10 +210,10 @@ zh-CN:
   setting_allow_tracking_start_and_end_times_caption: "启用在记录时间时输入开始和结束时间。"
   setting_enforce_tracking_start_and_end_times_caption: "记录时间时强制输入开始和结束时间。"
   text_assign_time_and_cost_entries_to_project: "将已上报的工时和成本提交到项目中"
-  text_destroy_cost_entries_question: "您要删除的工作包已经上报了 %{cost_entries}。您想进行哪种操作？"
+  text_destroy_cost_entries_question: "您要删除的工作任务已经上报了 %{cost_entries}。您想进行哪种操作？"
   text_destroy_time_and_cost_entries: "删除已上报的工时和成本"
-  text_destroy_time_and_cost_entries_question: "您要删除的工作包已经上报了 %{hours} 小时的工作量、%{cost_entries} 的成本。您想进行哪种操作？"
-  text_reassign_time_and_cost_entries: "将已上报的工时和成本重新提交到工作包中："
+  text_destroy_time_and_cost_entries_question: "您要删除的工作任务已经上报了 %{hours} 小时的工作量、%{cost_entries} 的成本。您想进行哪种操作？"
+  text_reassign_time_and_cost_entries: "将已上报的工时和成本重新提交到工作任务中："
   text_warning_hidden_elements: "某些条目可能已被排除在聚合之外。"
   week: "周"
   total_times:
@@ -231,7 +231,7 @@ zh-CN:
         title: "实际成本（按月）"
         blankslate:
           heading: "开始跟踪时间和成本"
-          description: "概括了解成本和记录的时间，以便监控项目进度。确保工作包与正确的预算相关联。"
+          description: "概括了解成本和记录的时间，以便监控项目进度。确保工作任务与正确的预算相关联。"
           action: "记录时间"
         view_details: "查看实际成本详细信息"
   ee:

@@ -121,7 +121,7 @@ zh-CN:
     chart:
       type: "图表类型"
       axis_criteria: "轴条件"
-      modal_title: "工作包图配置"
+      modal_title: "工作任务图配置"
       types:
         line: "线图"
         horizontal_bar: "水平条形图"
@@ -137,8 +137,8 @@ zh-CN:
         could_not_load: "无法加载用于显示图表的数据。可能缺少必要的权限。"
     description_available_columns: "可用的列"
     description_current_position: "您现在的位置："
-    description_select_work_package: "选择工作包 #%{id}"
-    description_subwork_package: "子工作包 #%{id}"
+    description_select_work_package: "选择工作任务 #%{id}"
+    description_subwork_package: "子工作任务 #%{id}"
     editor:
       revisions: "显示本地修改"
       no_revisions: "未找到本地修改"
@@ -183,15 +183,15 @@ zh-CN:
             通过指定其标题或简短链接来包含其他维基页面的内容。
             您可以通过使用冒号分隔另一个项目的维基页面，如下例所示。
         work_package_button:
-          button: "插入创建工作包按钮"
-          type: "工作包类型"
+          button: "插入创建工作任务按钮"
+          type: "工作任务类型"
           button_style: "使用按键风格"
           button_style_hint: "可选：选中以使宏显示为按钮，而不是链接。"
-          without_type: "创建工作包"
-          with_type: "创建工作包（类型：%{typename}）"
+          without_type: "创建工作任务"
+          with_type: "创建工作任务（类型：%{typename}）"
         embedded_table:
-          button: "嵌入工作包表"
-          text: "[Placeholder] 嵌入式工作包表"
+          button: "嵌入工作任务表"
+          text: "[Placeholder] 嵌入式工作任务表"
         embedded_calendar:
           text: "[Placeholder]嵌入式日历"
     admin:
@@ -200,7 +200,7 @@ zh-CN:
         inactive: "非活动"
         drag_to_activate: "从此处拖动字段将其激活"
         add_group: "增加属性组"
-        add_table: "添加相关工作包表"
+        add_table: "添加相关工作任务表"
         edit_query: "编辑查询"
         new_group: "新建组"
         delete_group: "删除群组"
@@ -216,9 +216,9 @@ zh-CN:
         change_button: "保存并重新安排"
         change_title: "更改工作日"
         removed_title: "您将从非工作日列表中删除以下日期："
-        change_description: "在这种情况下，更改一周中哪几天被视为工作日或非工作日会影响所有项目中所有工作包和生命周期的开始日期和结束日期。"
+        change_description: "在这种情况下，更改一周中哪几天被视为工作日或非工作日会影响所有项目中所有工作任务和生命周期的开始日期和结束日期。"
         warning: >
-          更改可能需要一些时间才能生效。在所有相关工作包和项目生命周期更新后，您将收到通知。
+          更改可能需要一些时间才能生效。在所有相关工作任务和项目生命周期更新后，您将收到通知。
           确定要继续吗？
       work_packages_settings:
         warning_progress_calculation_mode_change_from_status_to_field_html: >-
@@ -236,7 +236,7 @@ zh-CN:
       embedded_table_loading: "无法加载嵌入式视图：%{message}"
     enumeration_activities: "活动 （时间跟踪）"
     enumeration_doc_categories: "文档类别"
-    enumeration_work_package_priorities: "工作包优先级"
+    enumeration_work_package_priorities: "工作任务优先级"
     filter:
       more_values_not_shown: "还有 %{total} 条结果，搜索以筛选结果。"
       description:
@@ -269,7 +269,7 @@ zh-CN:
       filter:
         noneSelection: "（无）"
       selection_mode:
-        notification: "点击任何高亮显示的工作包以创建关系。按 Escape 键可以取消。"
+        notification: "点击任何高亮显示的工作任务以创建关系。按 Escape 键可以取消。"
       zoom:
         in: "放大"
         out: "缩小"
@@ -288,15 +288,15 @@ zh-CN:
     hal:
       error:
         update_conflict_refresh: "点击此处刷新资源并更新到最新版本。"
-        edit_prohibited: "已阻止对此工作包编辑 %{attribute}。此属性来自于关系继承(如子项目)或其他无法配置的来源。"
+        edit_prohibited: "已阻止对此工作任务编辑 %{attribute}。此属性来自于关系继承(如子项目)或其他无法配置的来源。"
         format:
           date: "%{attribute} 不是有效日期 - 需要 YYYY-MM-DD。"
         general: "发生错误。"
     ical_sharing_modal:
       title: "订阅日历"
       inital_setup_error_message: "获取数据时发生错误。"
-      description: "您可以使用 URL (iCalendar) 在外部客户端中订阅此日历，并从外部客户端查看最新工作包信息。"
-      warning: "请不要与其他用户共享此 URL 。拥有这个链接的任何人都可以在没有帐户或密码的情况下查看工作包的详细信息。"
+      description: "您可以使用 URL (iCalendar) 在外部客户端中订阅此日历，并从外部客户端查看最新工作任务信息。"
+      warning: "请不要与其他用户共享此 URL 。拥有这个链接的任何人都可以在没有帐户或密码的情况下查看工作任务的详细信息。"
       token_name_label: "您将在哪里使用它？"
       token_name_placeholder: '输入名称，例如“Phone”'
       token_name_description_text: '如果您从多个设备订阅此日历，此名称将有助于在<a href="%{myAccessTokensUrl}" target="_blank">访问令牌</a>列表中区分它们。'
@@ -305,7 +305,7 @@ zh-CN:
       success_message: 'URL“%{name}”已成功复制到剪贴板。请将其粘贴到日历客户端中以完成订阅。'
     label_activate: "激活"
     label_assignee: "指定"
-    label_assignee_alt_text: "此工作包被指定至 %{name}"
+    label_assignee_alt_text: "此工作任务被指定至 %{name}"
     label_add_column_after: "之后添加列"
     label_add_column_before: "在之前添加列"
     label_add_columns: "添加列"
@@ -320,7 +320,7 @@ zh-CN:
     label_all: "所有"
     label_all_projects: "所有项目"
     label_all_uppercase: "全部"
-    label_all_work_packages: "所有工作包"
+    label_all_work_packages: "所有工作任务"
     label_and: "和"
     label_ascending: "升序"
     label_author: "作者: %{user}"
@@ -332,7 +332,7 @@ zh-CN:
     label_board_sticky: "置顶"
     label_change: "更改"
     label_create: "创建"
-    label_create_work_package: "创建新工作包"
+    label_create_work_package: "创建新工作任务"
     label_created_by: "创建自"
     label_current: "当前"
     label_date: "日期"
@@ -354,7 +354,7 @@ zh-CN:
     label_contains: "包含"
     label_created_on: "创建于"
     label_edit_comment: "编辑此注释"
-    label_edit_status: "编辑工作包的状态"
+    label_edit_status: "编辑工作任务的状态"
     label_email: "电子邮件"
     label_equals: "是"
     label_expand: "展开"
@@ -457,19 +457,19 @@ zh-CN:
     label_total_amount: "总计: %{amount}"
     label_updated_on: "更新于"
     label_value_derived_from_children: "（来自子项的值）"
-    label_children_derived_duration: "工作包的子项派生持续时间"
+    label_children_derived_duration: "工作任务的子项派生持续时间"
     label_warning: "警告"
-    label_work_package: "工作包"
-    label_work_package_parent: "父工作包"
-    label_work_package_plural: "工作包"
+    label_work_package: "工作任务"
+    label_work_package_parent: "父工作任务"
+    label_work_package_plural: "工作任务"
     label_watch: "关注"
-    label_watch_work_package: "关注工作包"
+    label_watch_work_package: "关注工作任务"
     label_watcher_added_successfully: "已成功添加关注者！"
     label_watcher_deleted_successfully: "已成功删除关注者！"
     label_work_package_details_you_are_here: "您位于%{type}%{subject}的“%{tab}”选项卡上。"
-    label_work_package_context_menu: "工作包上下文菜单"
+    label_work_package_context_menu: "工作任务上下文菜单"
     label_unwatch: "取消关注"
-    label_unwatch_work_package: "取消工作包关注"
+    label_unwatch_work_package: "取消工作任务关注"
     label_uploaded_by: "上传者"
     label_default_queries: "默认"
     label_starred_queries: "收藏夹"
@@ -487,14 +487,14 @@ zh-CN:
     label_remove_all_files: 删除所有文件
     label_add_description: "为%{file} 添加说明"
     label_upload_notification: "正在上传文件…"
-    label_work_package_upload_notification: "正在为 #%{id}: %{subject} 工作包上传文件"
+    label_work_package_upload_notification: "正在为 #%{id}: %{subject} 工作任务上传文件"
     label_wp_id_added_by: "#%{id}，由 %{author} 添加"
     label_files_to_upload: "这些文件将被上传:"
     label_rejected_files: "这些文件无法上传:"
     label_rejected_files_reason: "这些文件不能上传，因为它们大于 %{maximumFilesize}"
     label_wait: "请等待配置..."
     label_upload_counter: "%{count} 个中的 %{done} 个文件已完成"
-    label_validation_error: "由于下列错误，无法保存工作包:"
+    label_validation_error: "由于下列错误，无法保存工作任务:"
     label_version_plural: "版本"
     label_view_has_changed: "此视图有未保存的更改。单击以保存。"
     help_texts:
@@ -524,19 +524,19 @@ zh-CN:
           add: "点击加号 (+) 图标可<b>创建新卡片</b>或<b>添加现有卡片</b>到面板上的列表中。"
           drag: "在给定列表中拖放您的卡片以重新排序，或者将卡片移动到其他列表中。<br>您可以点击右上角的信息 (i) 图标或双击卡片可打开其详细信息。"
         wp:
-          toggler: "现在我们来看一下<b>工作包</b>部分，工作包提供了更详细的工作视图。"
-          list: "此<b>工作</b>包概览提供了包含项目中所有工作的列表，例如任务、里程碑、阶段等。<br>可以直接从此视图创建和编辑工作包。要访问特定工作包的详细信息，只需双击该行即可。"
-          full_view: "<b>工作包详细信息</b>视图中提供了与给定工作包有关的所有相关信息，例如其描述、状态、优先级、活动、依赖项和评论。"
-          back_button: "使用左上角的返回箭头可退出并返回到工作包列表。"
-          create_button: "<b>+ 创建</b>按钮将为您的项目添加一个新工作包。"
+          toggler: "现在我们来看一下<b>工作任务</b>部分，工作任务提供了更详细的工作视图。"
+          list: "此<b>工作</b>包概览提供了包含项目中所有工作的列表，例如任务、里程碑、阶段等。<br>可以直接从此视图创建和编辑工作任务。要访问特定工作任务的详细信息，只需双击该行即可。"
+          full_view: "<b>工作任务详细信息</b>视图中提供了与给定工作任务有关的所有相关信息，例如其描述、状态、优先级、活动、依赖项和评论。"
+          back_button: "使用左上角的返回箭头可退出并返回到工作任务列表。"
+          create_button: "<b>+ 创建</b>按钮将为您的项目添加一个新工作任务。"
           gantt_menu: "使用甘特图模块轻松创建项目时间表和时间线。"
-          timeline: "您可以在此<b>编辑您的项目计划</b>、创建新的工作包（例如任务、里程碑、阶段等）以及<b>添加依赖项</b>。所有团队成员都可以随时查看和更新最新计划。"
+          timeline: "您可以在此<b>编辑您的项目计划</b>、创建新的工作任务（例如任务、里程碑、阶段等）以及<b>添加依赖项</b>。所有团队成员都可以随时查看和更新最新计划。"
         team_planner:
           overview: "工作组规划器使您可以直观地为团队成员分配任务，并全面了解哪些成员正在处理哪些工作。"
-          calendar: "单周或双周规划面板可以显示分配给您的团队成员的所有工作包。"
+          calendar: "单周或双周规划面板可以显示分配给您的团队成员的所有工作任务。"
           add_assignee: "首先，请将受理人添加到工作组规划器。"
-          add_existing: "搜索现有工作包并将其拖动到工作组规划器，以立即将其分配给团队成员并定义开始日期和结束日期。"
-          card: "水平拖动工作包以前移或后移其时间，拖动边缘以更改开始日期和结束日期，甚至可以将其垂直拖动到不同的行以分配给其他成员。"
+          add_existing: "搜索现有工作任务并将其拖动到工作组规划器，以立即将其分配给团队成员并定义开始日期和结束日期。"
+          card: "水平拖动工作任务以前移或后移其时间，拖动边缘以更改开始日期和结束日期，甚至可以将其垂直拖动到不同的行以分配给其他成员。"
     notifications:
       title: "通知"
       no_unread: "没有未读通知"
@@ -611,20 +611,20 @@ zh-CN:
           shared: "共享"
           watched: "关注者"
           work_package_commented: "所有新评论"
-          work_package_created: "新工作包"
+          work_package_created: "新工作任务"
           work_package_processed: "所有状态更改"
           work_package_prioritized: "所有优先级更改"
           work_package_scheduled: "所有日期更改"
         global:
           immediately:
             title: "参与"
-            description: "对于你参与的所有工作包（受理人、负责人或关注者），可以设置通知以接收所有活动的提醒。"
+            description: "对于你参与的所有工作任务（受理人、负责人或关注者），可以设置通知以接收所有活动的提醒。"
           delayed:
             title: "不参与"
             description: "在所有项目中通知您所有活动。"
           date_alerts:
             title: "日期提醒"
-            description: "当你参与的开放工作包（作为受理人、负责人或关注者）的重要日期临近时，自动发送通知。"
+            description: "当你参与的开放工作任务（作为受理人、负责人或关注者）的重要日期临近时，自动发送通知。"
           overdue: 逾期时
         project_specific:
           title: "项目特定通知设置"
@@ -653,7 +653,7 @@ zh-CN:
       context: "项目上下文"
       not_available: "项目 N/A"
       required_outside_context: >
-        请选择要创建工作包的项目以查看所有属性。 您只能选择已激活上述类型的项目。
+        请选择要创建工作任务的项目以查看所有属性。 您只能选择已激活上述类型的项目。
     reminders:
       settings:
         daily:
@@ -670,9 +670,9 @@ zh-CN:
           mentioned: "当有人@提及我时立即提醒"
           personal_reminder: "收到个人提醒后立即发送"
         alerts:
-          title: "其他项目（非工作包）的电子邮件提醒"
+          title: "其他项目（非工作任务）的电子邮件提醒"
           explanation: >
-            今日提醒仅限于工作包。您可以选择继续接收这些事件的电子邮件提醒，直到它们被包含在通知中。
+            今日提醒仅限于工作任务。您可以选择继续接收这些事件的电子邮件提醒，直到它们被包含在通知中。
           news_added: "添加新闻"
           news_commented: "评论新闻"
           document_added: "添加文档"
@@ -703,14 +703,14 @@ zh-CN:
         more_information: "更多信息"
         nevermind: "我愿意"
     time_entry:
-      work_package_required: "需要先选择一个工作包。"
+      work_package_required: "需要先选择一个工作任务。"
       title: "记录时间"
       tracking: "时间跟踪"
       stop: "停止"
     timer:
       start_new_timer: "启动新计时器"
       timer_already_running: "要启动新计时器，必须先停止当前计时器："
-      timer_already_stopped: "此工作包没有激活的计时器，您是否已在其他窗口中将其停止？"
+      timer_already_stopped: "此工作任务没有激活的计时器，您是否已在其他窗口中将其停止？"
       tracking_time: "跟踪时间"
       button_stop: "停止当前计时器"
     two_factor_authentication:
@@ -748,7 +748,7 @@ zh-CN:
       remove_parent: "删除父级"
       hierarchy_indent: "缩进层次结构"
       hierarchy_outdent: "减少缩进层次结构"
-      group_by_wp_type: "按工作包类型分组"
+      group_by_wp_type: "按工作任务类型分组"
       group_by_relation_type: "按关系类型分组"
       add_parent: "添加现有的上一级"
       add_new_child: "创建新的子任务"
@@ -789,7 +789,7 @@ zh-CN:
       activate_asc: "激活以进行升序排序"
       activate_dsc: "激活以进行降序排序"
       activate_no: "激活以移除排序"
-    text_work_packages_destroy_confirmation: "确实要删除所选的工作包吗?"
+    text_work_packages_destroy_confirmation: "确实要删除所选的工作任务吗?"
     text_query_destroy_confirmation: "确定要删除所选视图吗？"
     tl_toolbar:
       zooms: "缩放级别"
@@ -827,7 +827,7 @@ zh-CN:
       comment_added: "注释已成功添加。"
       comment_send_failed: "出错。无法提交评论。"
       comment_updated: "注释已成功更新。"
-      confirm_edit_cancel: "是否确定想要取消编辑工作包？"
+      confirm_edit_cancel: "是否确定想要取消编辑工作任务？"
       description_filter: "筛选器"
       description_enter_text: "输入文本"
       description_options_hide: "隐藏选项"
@@ -840,12 +840,12 @@ zh-CN:
       label_filter_by_text: "按文本筛选"
       label_options: "选项"
       label_column_multiselect: "组合式的下拉字段: 使用箭头键选择，用 enter 键确认选择，用退格键删除"
-      message_error_during_bulk_delete: 试图删除工作包时出错。
-      message_successful_bulk_delete: 已成功删除工作包。
-      message_successful_show_in_fullscreen: "单击此处以全屏视图打开此工作包。"
-      message_view_spent_time: "显示这个工作包所花费的时间"
-      message_work_package_read_only: "工作包被锁定在此状态。除状态外，其他属性均不可更改。"
-      message_work_package_status_blocked: "由于处于关闭状态并且分配了关闭版本，因此工作包状态不可写。"
+      message_error_during_bulk_delete: 试图删除工作任务时出错。
+      message_successful_bulk_delete: 已成功删除工作任务。
+      message_successful_show_in_fullscreen: "单击此处以全屏视图打开此工作任务。"
+      message_view_spent_time: "显示这个工作任务所花费的时间"
+      message_work_package_read_only: "工作任务被锁定在此状态。除状态外，其他属性均不可更改。"
+      message_work_package_status_blocked: "由于处于关闭状态并且分配了关闭版本，因此工作任务状态不可写。"
       placeholder_filter_by_text: "主题, 描述, 评论,..。"
       progress:
         title: "工时估计和进展"
@@ -855,33 +855,33 @@ zh-CN:
         modification_label: "在比较时间段内修改"
         column_incompatible: "此列在基线模式下不显示更改。"
       filters:
-        title: "筛选工作包"
+        title: "筛选工作任务"
         baseline_incompatible: "在基线模式下，将不考虑此筛选器属性。"
         baseline_warning: "基线模式已开启，但您的一些活动过滤器未包含在比较中。"
       inline_create:
-        title: "单击此处将新工作包添加至此列表"
+        title: "单击此处将新工作任务添加至此列表"
       create:
-        title: "新工作包"
+        title: "新工作任务"
         header: "新 %{type}"
-        header_no_type: "新工作包(类型尚未设置)"
+        header_no_type: "新工作任务(类型尚未设置)"
         header_with_parent: "新的 %{type} （%{parent_type} #%{id} 子）"
         button: "创建"
       duplicate:
-        title: "复制工作包"
+        title: "复制工作任务"
       hierarchy:
         show: "显示层次结构模式"
         hide: "隐藏层次结构模式"
         toggle_button: "单击以切换层次结构模式。"
-        leaf: "工作包叶处于 %{level} 级。"
+        leaf: "工作任务叶处于 %{level} 级。"
         children_collapsed: "层次结构级别 %{level} 已折叠。单击以显示筛选的子任务"
         children_expanded: "层次结构级别 %{level} 已展开。单击以折叠筛选的子任务"
       faulty_query:
-        title: 无法加载工作包。
+        title: 无法加载工作任务。
         description: 您的视图不正确，无法处理。
       no_results:
-        title: 没有要显示的工作包。
-        description: 没有已创建的工作包或所有工作包都被筛选排除。
-      limited_results: 手动排序模式下只能显示 %{count} 个工作包。请通过筛选减少结果，或者切换到自动排序模式。
+        title: 没有要显示的工作任务。
+        description: 没有已创建的工作任务或所有工作任务都被筛选排除。
+      limited_results: 手动排序模式下只能显示 %{count} 个工作任务。请通过筛选减少结果，或者切换到自动排序模式。
       property_groups:
         details: "详细信息"
         people: "人员"
@@ -930,7 +930,7 @@ zh-CN:
         shared_with_me: "与我分享"
       jump_marks:
         pagination: "跳转到表格分页"
-        label_pagination: "单击此处跳过工作包表格并转到分页"
+        label_pagination: "单击此处跳过工作任务表格并转到分页"
         content: "跳到内容"
         label_content: "单击此处跳过菜单，转到内容"
       placeholders:
@@ -955,7 +955,7 @@ zh-CN:
         rename_query_placeholder: "此视图的名称"
         star_text: "将此视图标记为收藏项，并添加到左侧的已保存视图边栏中。"
         public_text: >
-          发布此视图，以允许其他用户访问您的视图。具有“管理公共视图”权限的用户可以修改或移除公共查询。这不会影响工作包结果在该视图中的可见性，并且用户可能会看到不同的结果，具体取决于他们的权限。
+          发布此视图，以允许其他用户访问您的视图。具有“管理公共视图”权限的用户可以修改或移除公共查询。这不会影响工作任务结果在该视图中的可见性，并且用户可能会看到不同的结果，具体取决于他们的权限。
         errors:
           unretrievable_query: "无法从 URL 检索视图"
           not_found: "无此视图"
@@ -966,7 +966,7 @@ zh-CN:
         title:
           new: "设置提醒"
           edit: "编辑提醒"
-        subtitle: "您将在所选时间收到此工作包的通知。"
+        subtitle: "您将在所选时间收到此工作任务的通知。"
         presets:
           tomorrow: "明天"
           three_days: "3 天后"
@@ -974,21 +974,21 @@ zh-CN:
           month: "一个月后"
           custom: "在某个特定日期/时间"
       scheduling:
-        is_parent: "此工作包的日期会自动从其子项推导出。可激活“手动计划”来设置日期。"
-        is_switched_from_manual_to_automatic: "由于与其他工作包的关系，在从手动计划切换为自动计划后，此工作包的日期可能需要重新计算。"
+        is_parent: "此工作任务的日期会自动从其子项推导出。可激活“手动计划”来设置日期。"
+        is_switched_from_manual_to_automatic: "由于与其他工作任务的关系，在从手动计划切换为自动计划后，此工作任务的日期可能需要重新计算。"
       sharing:
-        title: "共享工作包"
-        show_all_users: "显示与之共享工作包的所有用户"
+        title: "共享工作任务"
+        show_all_users: "显示与之共享工作任务的所有用户"
       table:
-        configure_button: "配置工作包表"
-        summary: "行为工作包且列为工作包属性的表格。"
-        text_inline_edit: "大多数此表格的单元格为激活工作包属性的直接编辑功能的按钮。"
+        configure_button: "配置工作任务表"
+        summary: "行为工作任务且列为工作任务属性的表格。"
+        text_inline_edit: "大多数此表格的单元格为激活工作任务属性的直接编辑功能的按钮。"
         text_sort_hint: "使用表格标题中的链接，您可以对表格中的列排序、分组、重排序、删除和添加。"
         text_select_hint: "请使用Alt+方向键打开选择框。"
       table_configuration:
-        button: "配置当前工作包表"
-        choose_display_mode: "将工作包显示为"
-        modal_title: "工作包表配置"
+        button: "配置当前工作任务表"
+        choose_display_mode: "将工作任务显示为"
+        modal_title: "工作任务表配置"
         embedded_tab_disabled: "此配置选项卡不适用于您正在编辑的嵌入式视图。"
         default: "默认"
         display_settings: "显示设置"
@@ -1008,13 +1008,13 @@ zh-CN:
           priority: "优先级"
           type: "类型"
         sorting_mode:
-          description: "选择对您的工作包排序的模式："
+          description: "选择对您的工作任务排序的模式："
           automatic: "自动"
           manually: "手动"
           warning: "激活自动排序模式时，您将丢失以前的排序结果。"
         columns_help_text: "使用上面的输入字段向表视图中添加列。您可以拖放列来将它们重新排序。"
         relation_filters:
-          filter_work_packages_by_relation_type: "按关系类型筛选工作包"
+          filter_work_packages_by_relation_type: "按关系类型筛选工作任务"
       tabs:
         overview: 概述
         activity: 活动
@@ -1043,7 +1043,7 @@ zh-CN:
         page_settings: "重命名视图"
         delete: "删除"
       filter: "筛选器"
-      unselected_title: "工作包"
+      unselected_title: "工作任务"
       search_query_label: "搜索已保存的视图"
     modals:
       label_name: "名称"
@@ -1058,11 +1058,11 @@ zh-CN:
         text: "是否确定想要执行此操作？"
       destroy_work_package:
         title: "确认删除%{label}"
-        single_text: "确定要删除此工作包吗？"
+        single_text: "确定要删除此工作任务吗？"
         bulk_text: "确定要删除以下%{label}吗？"
-        has_children: "工作包有 %{childUnits}:"
-        confirm_deletion_children: "我确认所列工作包的全部子工作包都将递归移除。"
-        deletes_children: "所有子工作包及其子级也将递归删除。"
+        has_children: "工作任务有 %{childUnits}:"
+        confirm_deletion_children: "我确认所列工作任务的全部子工作任务都将递归移除。"
+        deletes_children: "所有子工作任务及其子级也将递归删除。"
       destroy_time_entry:
         title: "确认删除时间条目"
         text: "确定要删除以下时间条目？"
@@ -1100,9 +1100,9 @@ zh-CN:
     error_attachment_upload_permission: "您没有上传文件到此资源的权限。"
     units:
       workPackage:
-        other: "工作包"
+        other: "工作任务"
       child_work_packages:
-        other: "%{count} 子工作包"
+        other: "%{count} 子工作任务"
       hour_string: "%{hours} 小时"
       hour:
         one: "1 小时"
@@ -1121,11 +1121,11 @@ zh-CN:
       all_projects: "在所有项目中"
       close_search: "关闭搜索"
       items_available: "%{count} 个可用条目"
-      direct_hit_available: "找到与 ID 完全匹配的工作包。按 Enter 可打开。"
+      direct_hit_available: "找到与 ID 完全匹配的工作任务。按 Enter 可打开。"
       current_project_and_all_descendants: "在当前项目和子项目中"
       current_project: "在当前项目中"
       recently_viewed: "最近浏览"
-      search_placeholder_expanded: "按主题、项目、类型、状态或 ID 搜索工作包"
+      search_placeholder_expanded: "按主题、项目、类型、状态或 ID 搜索工作任务"
       title:
         all_projects: "所有项目"
         project_and_subprojects: "和所有子项目"

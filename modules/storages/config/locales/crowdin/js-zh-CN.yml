@@ -27,9 +27,9 @@ zh-CN:
         live_data_error: "获取文件详情时出错"
         live_data_error_description: >
           无法获取某些 %{storageType} 数据。请尝试重新加载此页面，或者联系您的 %{storageType} 管理员。
-        no_file_links: "要将文件链接到此工作包，请通过 %{storageType} 执行此操作。"
+        no_file_links: "要将文件链接到此工作任务，请通过 %{storageType} 执行此操作。"
         not_logged_in: >
-          要添加链接、查看或上传与此工作包相关的文件，请登录 %{storageType}。
+          要添加链接、查看或上传与此工作任务相关的文件，请登录 %{storageType}。
         suggest_logout: 您可以尝试重新登录修复这个问题。
         suggest_relink: 您可以尝试通过下面的登录按钮重新链接您的帐户来解决这个问题。
       files:
@@ -53,13 +53,13 @@ zh-CN:
         upload_replace: "替换"
       file_links:
         empty: >
-          当前的工作包没有链接的文件。请用下面操作或在%{storageType}内开始链接文件。
+          当前的工作任务没有链接的文件。请用下面操作或在%{storageType}内开始链接文件。
         download: "下载 %{fileName}"
         open: "在存储上打开文件"
         open_location: "在位置打开文件"
         remove: "移除文件链接"
         remove_confirmation: >
-          确定要取消文件与此工作包的链接吗？取消链接不会影响原始文件，只会移除与此工作包的关联。
+          确定要取消文件与此工作任务的链接吗？取消链接不会影响原始文件，只会移除与此工作任务的关联。
         remove_short: "移除链接"
         select: "选择文件"
         select_all: "全选"
@@ -81,10 +81,10 @@ zh-CN:
             nextcloud: >
               请检查是否安装了最新版本的 Nextcloud 应用程序 "OpenProject Integration"，如需更多信息，请联系您的管理员。
         link_uploaded_file_error: >
-          在链接最近上传的文件 '%{fileName}' 到工作包 %{workPackageId} 时出现错误。
+          在链接最近上传的文件 '%{fileName}' 到工作任务 %{workPackageId} 时出现错误。
         tooltip:
           not_logged_in: "请登录到存储区来访问此文件。"
           view_not_allowed: "您无权查看此文件。"
           not_found: "找不到此文件。"
-        already_linked_file: "此文件已链接到该工作包。"
-        already_linked_directory: "此目录已连接到该工作包。"
+        already_linked_file: "此文件已链接到该工作任务。"
+        already_linked_directory: "此目录已连接到该工作任务。"
