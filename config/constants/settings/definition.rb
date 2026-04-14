@@ -399,7 +399,7 @@ module Settings
       # allow to disable default modules
       disabled_modules: {
         description: "A list of module names to prevent access to in the application",
-        default: [],
+        default: %w[board_view meetings wiki news documents],
         allowed: -> { OpenProject::AccessControl.available_project_modules.map(&:to_s) },
         writable: false # setting stored in global variable
       },
