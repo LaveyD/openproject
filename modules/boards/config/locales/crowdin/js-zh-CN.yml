@@ -26,10 +26,10 @@ zh-CN:
       new_board: '新建面板'
       add_list: '将列表添加到面板'
       add_card: '添加卡片'
-      error_attribute_not_writable: "无法移动工作包，%{attribute} 不可写。"
+      error_attribute_not_writable: "无法移动工作任务，%{attribute} 不可写。"
       error_loading_the_list: "加载列表时出错：%{error_message}"
       error_permission_missing: "缺少创建公共查询的权限"
-      error_cannot_move_into_self: "您不能将工作包移动到其自己的列中。"
+      error_cannot_move_into_self: "您不能将工作任务移动到其自己的列中。"
       text_hidden_list_warning: "并未显示所有列表，因为您缺少权限。有关详细信息，请联系您的管理员。"
       click_to_remove_list: "点击以移除此列表"
       board_type:
@@ -41,15 +41,15 @@ zh-CN:
         action: '操作面板'
         action_by_attribute: '操作面板 (%{attribute})'
         action_text: >
-          一个在 %{attribute} 属性上具有筛选列表的面板。将工作包移动到其他列表会更新其属性。
+          一个在 %{attribute} 属性上具有筛选列表的面板。将工作任务移动到其他列表会更新其属性。
         action_text_subprojects: >
-          具有子项目自动列的面板。将工作包拖动到其他列表会相应地更新（子）项目。
+          具有子项目自动列的面板。将工作任务拖动到其他列表会相应地更新（子）项目。
         action_text_subtasks: >
-          具有子元素自动列的面板。将工作包拖动到其他列表会相应地更新父项。
+          具有子元素自动列的面板。将工作任务拖动到其他列表会相应地更新父项。
         action_text_status: >
           基本看板样式的面板，包含“待办”、“正在进行”、“已完成”等状态的列。
         action_text_assignee: >
-          基于分配给用户的自动列看板，是分派工作包非常理想的工具。
+          基于分配给用户的自动列看板，是分派工作任务非常理想的工具。
         action_text_version: >
           基于版本属性的自动列面板。用于产品开发规划。
         action_type:
@@ -72,7 +72,7 @@ zh-CN:
           status: 选择要添加到新列表的状态
           version: 选择要添加到新列表的版本
           subproject: 选择要添加到新列表的子项目
-          subtasks: 选择要添加到新列表的工作包
+          subtasks: 选择要添加到新列表的工作任务
         warning:
           status: |
             目前没有可用的状态。<br>

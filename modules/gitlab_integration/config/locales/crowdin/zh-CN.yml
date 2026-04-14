@@ -60,19 +60,19 @@ zh-CN:
     merge_request_reopened_comment: >
       **合并请求已重新打开**：[%{repository}](%{repository_url}) 的合并请求 %{mr_number} [%{mr_title}](%{mr_url}) 已由 [%{gitlab_user}](%{gitlab_user_url}) 重新打开。
     note_commit_referenced_comment: >
-      **在提交中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的提交备注 [%{commit_id}](%{commit_url}) 中引用了此工作包：
+      **在提交中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的提交备注 [%{commit_id}](%{commit_url}) 中引用了此工作任务：
       %{commit_note}
     note_mr_referenced_comment: >
-      **在合并请求中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的合并请求 %{mr_number} [%{mr_title}](%{mr_url}) 中引用了此工作包：
+      **在合并请求中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的合并请求 %{mr_number} [%{mr_title}](%{mr_url}) 中引用了此工作任务：
       %{mr_note}
     note_mr_commented_comment: >
-      **在合并请求中添加评论**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的合并请求 %{mr_number} [%{mr_title}](%{mr_url}) 中对此工作包添加了评论：%{mr_note}
+      **在合并请求中添加评论**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的合并请求 %{mr_number} [%{mr_title}](%{mr_url}) 中对此工作任务添加了评论：%{mr_note}
     note_issue_referenced_comment: >
-      **在问题中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的问题 %{issue_number} [%{issue_title}](%{issue_url}) 中引用了此工作包：%{issue_note}
+      **在问题中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的问题 %{issue_number} [%{issue_title}](%{issue_url}) 中引用了此工作任务：%{issue_note}
     note_issue_commented_comment: >
-      **在问题中添加评论**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的问题 %{issue_number} [%{issue_title}](%{issue_url}) 中对此工作包添加了评论：%{issue_note}
+      **在问题中添加评论**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的问题 %{issue_number} [%{issue_title}](%{issue_url}) 中对此工作任务添加了评论：%{issue_note}
     note_snippet_referenced_comment: >
-      **在代码段中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的代码段 %{snippet_number} [%{snippet_title}](%{snippet_url}) 中引用了此工作包：%{snippet_note}
+      **在代码段中引用**：[%{gitlab_user}](%{gitlab_user_url}) 在 [%{repository}](%{repository_url}) 上的代码段 %{snippet_number} [%{snippet_title}](%{snippet_url}) 中引用了此工作任务：%{snippet_note}
     issue_opened_referenced_comment: >
       **问题已打开**：[%{repository}](%{repository_url}) 的问题 %{issue_number} [%{issue_title}](%{issue_url}) 已由 [%{gitlab_user}](%{gitlab_user_url}) 打开。
     issue_closed_referenced_comment: >
